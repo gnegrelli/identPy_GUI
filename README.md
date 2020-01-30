@@ -1,3 +1,3 @@
 # GUI for IdentPy
 
-GUI application for IdentPy software created using PyQt5.
+GUI application for IdentPy software created using PySide2.
