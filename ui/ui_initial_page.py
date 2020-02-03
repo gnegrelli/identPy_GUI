@@ -82,7 +82,6 @@ class Ui_initialPage(object):
         self.next_button.setSizePolicy(sizePolicy)
         self.next_button.setMinimumSize(QSize(89, 25))
         self.next_button.setMaximumSize(QSize(89, 25))
-        self.next_button.clicked.connect(lambda: initialPage.click())
 
         self.horizontalLayout.addWidget(self.next_button)
 
@@ -101,8 +100,3 @@ class Ui_initialPage(object):
         self.description.setText(QCoreApplication.translate("initialPage", u"<html><head/><body><p>This software was developed by Gabriel Negrelli as part of his Masters Project in Electrical Engineering.</p><p>It's purpose is to estimate parameters of dynamic systems models using various approaches.</p><p>This software is available on <a href=\"github.com/gnegrelli/identPy\"><span style=\" text-decoration: underline; color:#0000ff;\">github.com/gnegrelli/identPy</span></a></p></body></html>", None))
         self.next_button.setText(QCoreApplication.translate("initialPage", u"Next", None))
     # retranslateUi
-
-    # def click(self, page):
-    #     page.parent.setCurrentIndex(1)
-    #     pass
-
