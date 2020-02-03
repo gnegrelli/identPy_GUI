@@ -10,6 +10,10 @@ class model_selection(MyQWidget):
         self.ui.setupUi(self)
 
         self.ui.next.clicked.connect(lambda: self.next())
+        self.ui.previous.clicked.connect(lambda: self.previous())
 
     def next(self):
         print(self.ui.selected_model.currentText())
+
+    def previous(self):
+        self.parent.setCurrentIndex(0)
