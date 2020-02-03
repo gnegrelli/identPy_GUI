@@ -82,7 +82,7 @@ class Ui_initialPage(object):
         self.next_button.setSizePolicy(sizePolicy)
         self.next_button.setMinimumSize(QSize(89, 25))
         self.next_button.setMaximumSize(QSize(89, 25))
-        self.next_button.clicked.connect(lambda: self.click(initialPage))
+        self.next_button.clicked.connect(lambda: initialPage.click())
 
         self.horizontalLayout.addWidget(self.next_button)
 
@@ -102,7 +102,7 @@ class Ui_initialPage(object):
         self.next_button.setText(QCoreApplication.translate("initialPage", u"Next", None))
     # retranslateUi
 
-    def click(self, page):
-        page.parent.setCurrentIndex(1)
-        pass
+    # def click(self, page):
+    #     page.parent.setCurrentIndex(1)
+    #     pass
 
