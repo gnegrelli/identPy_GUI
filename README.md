@@ -17,3 +17,9 @@ It can be installed by executing the following command:
 ```bash
 $ sudo apt install qttools5-dev-tools
 ```
+
+In order to convert the ui files into python code, use the following command on the terminal:
+
+```bash
+$ pyside2-uic ui_file.ui -o python_file.py
+```
