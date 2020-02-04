@@ -4,6 +4,7 @@ import sys
 from scripts.initial_page import initial_page
 from scripts.model_selection import model_selection
 from scripts.method_selection import method_selection
+from scripts.mvmo import mvmo
 
 
 class StackedExample(QStackedWidget):
@@ -22,6 +23,9 @@ class StackedExample(QStackedWidget):
 
         self.method_selection = method_selection(self)
         self.addWidget(self.method_selection)
+
+        self.mvmo = mvmo(self)
+        self.addWidget(self.mvmo)
 
         self.setCurrentIndex(0)
 
