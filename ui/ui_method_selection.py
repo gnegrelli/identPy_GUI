@@ -31,9 +31,9 @@ class Ui_method_selection(object):
         self.horizontalLayout_2.addWidget(self.label)
 
         self.method1 = QComboBox(method_selection)
-        self.method1.addItem(QString())
-        self.method1.addItem(QString())
-        self.method1.addItem(QString())
+        self.method1.addItem(str())
+        self.method1.addItem(str())
+        self.method1.addItem(str())
         self.method1.setObjectName(u"method1")
 
         self.horizontalLayout_2.addWidget(self.method1)
@@ -58,7 +58,7 @@ class Ui_method_selection(object):
         self.horizontalLayout_3.addWidget(self.label_2)
 
         self.method2 = QComboBox(method_selection)
-        self.method2.addItem(QString())
+        self.method2.addItem(str())
         self.method2.setObjectName(u"method2")
         self.method2.setEnabled(False)
 

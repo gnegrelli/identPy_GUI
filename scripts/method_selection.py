@@ -4,13 +4,10 @@ from ui.ui_method_selection import Ui_method_selection
 
 class method_selection(MyQWidget):
     def __init__(self, parent):
-        super().__init__(parent)
 
         self.ui = Ui_method_selection()
-        self.ui.setupUi(self)
 
-        self.ui.next.clicked.connect(lambda: self.next())
-        self.ui.previous.clicked.connect(lambda: self.previous())
+        super().__init__(parent)
 
         self.ui.checkBox.clicked.connect(lambda: self.ui.method2.setEnabled(self.ui.checkBox.isChecked()))
 

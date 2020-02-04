@@ -128,7 +128,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="next_button">
+        <widget class="QPushButton" name="next">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>

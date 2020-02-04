@@ -15,7 +15,6 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QFont,
     QRadialGradient)
 from PySide2.QtWidgets import *
 
-
 class Ui_initialPage(object):
     def setupUi(self, initialPage):
         if initialPage.objectName():
@@ -73,21 +72,24 @@ class Ui_initialPage(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer_2)
 
-        self.next_button = QPushButton(initialPage)
-        self.next_button.setObjectName(u"next_button")
+        self.next = QPushButton(initialPage)
+        self.next.setObjectName(u"next")
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.next_button.sizePolicy().hasHeightForWidth())
-        self.next_button.setSizePolicy(sizePolicy)
-        self.next_button.setMinimumSize(QSize(89, 25))
-        self.next_button.setMaximumSize(QSize(89, 25))
+        sizePolicy.setHeightForWidth(self.next.sizePolicy().hasHeightForWidth())
+        self.next.setSizePolicy(sizePolicy)
+        self.next.setMinimumSize(QSize(89, 25))
+        self.next.setMaximumSize(QSize(89, 25))
 
-        self.horizontalLayout.addWidget(self.next_button)
+        self.horizontalLayout.addWidget(self.next)
+
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
+
         self.gridLayout.addLayout(self.verticalLayout_2, 0, 0, 1, 1)
+
 
         self.retranslateUi(initialPage)
 
@@ -98,5 +100,6 @@ class Ui_initialPage(object):
         initialPage.setWindowTitle(QCoreApplication.translate("initialPage", u"Form", None))
         self.name.setText(QCoreApplication.translate("initialPage", u"identPy v1.0", None))
         self.description.setText(QCoreApplication.translate("initialPage", u"<html><head/><body><p>This software was developed by Gabriel Negrelli as part of his Masters Project in Electrical Engineering.</p><p>It's purpose is to estimate parameters of dynamic systems models using various approaches.</p><p>This software is available on <a href=\"github.com/gnegrelli/identPy\"><span style=\" text-decoration: underline; color:#0000ff;\">github.com/gnegrelli/identPy</span></a></p></body></html>", None))
-        self.next_button.setText(QCoreApplication.translate("initialPage", u"Next", None))
+        self.next.setText(QCoreApplication.translate("initialPage", u"Next", None))
     # retranslateUi
+
