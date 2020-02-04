@@ -11,3 +11,4 @@ class mvmo(MyQWidget):
 
     def next(self):
         print(self.ui.max_gen.text())
+        super().next()
