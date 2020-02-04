@@ -14,6 +14,4 @@ class model_selection(MyQWidget):
 
     def next(self):
         print(self.ui.selected_model.currentText())
-
-    def previous(self):
-        self.parent.setCurrentIndex(0)
+        super().next()

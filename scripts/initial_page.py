@@ -11,6 +11,3 @@ class initial_page(MyQWidget):
         self.ui.setupUi(self)
 
         self.ui.next_button.clicked.connect(lambda: self.next())
-
-    def next(self):
-        self.parent.setCurrentIndex(1)
