@@ -6,21 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>450</height>
+    <width>827</width>
+    <height>396</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>900</width>
-    <height>450</height>
+    <width>827</width>
+    <height>396</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
+   <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label">
@@ -30,7 +30,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="method1">
        <item>
         <property name="text">
          <string>MVMO</string>
@@ -70,7 +70,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item row="2" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_2">
@@ -80,7 +80,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="method2">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -106,7 +106,7 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="1">
+   <item row="3" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -119,7 +119,7 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="0" colspan="2">
+   <item row="4" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer_2">
@@ -135,7 +135,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="previous">
        <property name="text">
         <string>Previous</string>
        </property>
@@ -158,7 +158,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="next">
        <property name="text">
         <string>Next</string>
        </property>
@@ -169,22 +169,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>checkBox</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>comboBox_2</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>266</x>
-     <y>54</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>266</x>
-     <y>93</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
