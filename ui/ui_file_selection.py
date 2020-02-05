@@ -39,6 +39,7 @@ class Ui_file_selection(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.path.sizePolicy().hasHeightForWidth())
         self.path.setSizePolicy(sizePolicy)
+        self.path.setReadOnly(True)
 
         self.horizontalLayout.addWidget(self.path)
 

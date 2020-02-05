@@ -43,6 +43,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -128,14 +131,6 @@
     </layout>
    </item>
   </layout>
-  <zorder>path</zorder>
-  <zorder>next</zorder>
-  <zorder>previous</zorder>
-  <zorder>horizontalSpacer</zorder>
-  <zorder>horizontalSpacer_2</zorder>
-  <zorder>label</zorder>
-  <zorder>find_path</zorder>
-  <zorder>horizontalSpacer_3</zorder>
   <zorder>verticalSpacer</zorder>
  </widget>
  <resources/>
