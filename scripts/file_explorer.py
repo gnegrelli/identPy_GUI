@@ -3,20 +3,23 @@ from PySide2 import QtGui
 from PySide2 import QtCore
 
 from ui.ui_file_explorer import Ui_file_explorer
+from objects.widget import MyQWidget
 
 import webbrowser
 
 
 class MyFileExplorer(Ui_file_explorer, QtWidgets.QMainWindow):
-    def __init__(self, text_path=None):
-        assert isinstance(text_path, QtWidgets.QLineEdit) or text_path is None, 'Path must be displayed on a QLineEdit'
+    def __init__(self, parent=None):
+        assert isinstance(parent, MyQWidget) or parent is None, 'Parent must be MyQWidget'
+
+        self.parent = parent
+        if self.parent:
+            self.parent.parent.hide()
 
         super(MyFileExplorer, self).__init__()
         self.setupUi(self)
 
         self.model = QtWidgets.QFileSystemModel()
-
-        self.text_path = text_path
 
         self.populate()
 
@@ -34,9 +37,9 @@ class MyFileExplorer(Ui_file_explorer, QtWidgets.QMainWindow):
         self.treeView.setSortingEnabled(True)
 
     def open_path(self):
-        self.close()
-        if self.text_path:
-            self.text_path.setText(self.model.filePath(self.treeView.currentIndex()))
+        self.cancel_file_explore()
+        if self.parent:
+            self.parent.ui.path.setText(self.model.filePath(self.treeView.currentIndex()))
         else:
             print(self.model.filePath(self.treeView.currentIndex()))
 
@@ -45,6 +48,8 @@ class MyFileExplorer(Ui_file_explorer, QtWidgets.QMainWindow):
         webbrowser.open(file_path)
 
     def cancel_file_explore(self):
+        if self.parent:
+            self.parent.parent.show()
         self.close()
 
 

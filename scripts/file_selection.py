@@ -23,4 +23,4 @@ class file_selection(MyQWidget):
         # self.ui.path.setText(name[0])
 
         # Use MyFileExplorer
-        self.file_browser = MyFileExplorer(self.ui.path)
+        self.file_browser = MyFileExplorer(self)
