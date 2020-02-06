@@ -41,7 +41,15 @@ def validate_cols(cols='', col_name=''):
             return ''
         start = eval(col_range[0])
         stop = eval(col_range[1])
-        return list(range(start, stop))
+        if not isinstance(start, int) or not isinstance(stop, int):
+            warning_message('Invalid Index: ' + col_name.title(),
+                            'Column indices must be integer, list of integers or range.')
+            return ''
+        cols = list(range(start, stop))
+        if 0 in cols:
+            warning_message('Invalid Index: ' + col_name.title(),
+                            'Index 0 is reserved for time data.')
+        return cols
 
     return ''
 
