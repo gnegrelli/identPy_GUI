@@ -45,7 +45,7 @@ def validate_cols(cols='', col_name=''):
             warning_message('Invalid Index: ' + col_name.title(),
                             'Column indices must be integer, list of integers or range.')
             return ''
-        cols = list(range(start, stop))
+        cols = list(range(start, stop + 1))
         if 0 in cols:
             warning_message('Invalid Index: ' + col_name.title(),
                             'Index 0 is reserved for time data.')
@@ -78,10 +78,13 @@ class file_selection(MyQWidget):
         print('path:', self.ui.path.text())
         # path = validate_filepath(self.ui.path.text())
         # print('return path:', path)
-        print(self.ui.time_col.text())
+        print('time', self.ui.time_col.text())
         time_col = validate_cols(self.ui.time_col.text(), 'time')
-        print(self.ui.input_col.text())
+        print(time_col)
+        print('input', self.ui.input_col.text())
         input_col = validate_cols(self.ui.input_col.text(), 'input')
-        print(self.ui.output_col.text())
+        print(input_col)
+        print('output', self.ui.output_col.text())
         output_col = validate_cols(self.ui.output_col.text(), 'output')
+        print(output_col)
         super().next()
