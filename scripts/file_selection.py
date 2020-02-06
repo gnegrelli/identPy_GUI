@@ -27,11 +27,22 @@ def validate_filepath(path=''):
 
 def validate_cols(cols='', col_name=''):
     # Match any char that is not a digit, whitespace, comma or hyphen
-    pattern = re.compile(r'[^\d\W,-]')
+    pattern = re.compile(r'[^\d\s,-]')
     if re.match(pattern, cols):
         warning_message('Invalid Index: ' + col_name.title(),
                         'Column indices must be integer, list of integers or range.')
-    
+        return ''
+
+    if '-' in cols:
+        col_range = cols.split('-')
+        if len(col_range) != 2 or not col_range[-1]:
+            warning_message('Invalid Index: ' + col_name.title(),
+                            'Column indices must be integer, list of integers or range.')
+            return ''
+        start = eval(col_range[0])
+        stop = eval(col_range[1])
+        return list(range(start, stop))
+
     return ''
 
 
