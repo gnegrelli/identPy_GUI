@@ -16,8 +16,7 @@ def warning_message(msg_title='', msg_text=''):
     msgbox.exec_()
 
 
-def validate_filepath(path=''):
-    valid_extensions = ['csv', 'txt', 'dat']
+def validate_filepath(path='', valid_extensions=['csv', 'txt', 'dat']):
     if path and path.split('.')[-1] in valid_extensions:
         return path
     else:
@@ -27,8 +26,8 @@ def validate_filepath(path=''):
 
 def validate_cols(cols='', col_name=''):
     # Match any char that is not a digit, whitespace, comma or hyphen
-    pattern = re.compile(r'[^\d\s,-]')
-    if re.match(pattern, cols):
+    pattern = re.compile(r'[!\d\s,-]')
+    if re.match(pattern, cols) or not cols:
         warning_message('Invalid Index: ' + col_name.title(),
                         'Column indices must be integer, list of integers or range.')
         return ''
@@ -79,8 +78,8 @@ class file_selection(MyQWidget):
         # path = validate_filepath(self.ui.path.text())
         # print('return path:', path)
         print('time', self.ui.time_col.text())
-        time_col = validate_cols(self.ui.time_col.text(), 'time')
-        print(time_col)
+        # time_col = validate_cols(self.ui.time_col.text(), 'time')
+        # print(time_col)
         print('input', self.ui.input_col.text())
         input_col = validate_cols(self.ui.input_col.text(), 'input')
         print(input_col)
