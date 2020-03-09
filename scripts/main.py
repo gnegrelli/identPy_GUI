@@ -4,7 +4,6 @@ import sys
 from scripts.initial_page import initial_page
 from scripts.model_selection import model_selection
 from scripts.method_selection import method_selection
-from scripts.mvmo import mvmo
 from scripts.file_selection import file_selection
 
 
@@ -24,9 +23,6 @@ class StackedExample(QStackedWidget):
 
         self.method_selection = method_selection(self)
         self.addWidget(self.method_selection)
-
-        self.mvmo = mvmo(self)
-        self.addWidget(self.mvmo)
 
         self.file_selection = file_selection(self)
         self.addWidget(self.file_selection)
