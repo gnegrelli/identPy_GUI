@@ -5,6 +5,13 @@ from scripts.mvmo import mvmo
 
 
 class method_selection(MyQWidget):
+
+    methods = {
+        'MVMO': mvmo,
+        'Trajectory Sensitivity': None,
+        'PSO': None
+    }
+
     def __init__(self, parent):
 
         self.ui = Ui_method_selection()
@@ -18,11 +25,17 @@ class method_selection(MyQWidget):
         print(self.ui.checkBox.isChecked())
         print(self.ui.method2.currentText())
 
-        self.parent.method1 = mvmo(self.parent)
-        self.parent.addWidget(self.parent.method1)
+        try:
+            self.parent.method1 = self.methods[self.ui.method1.currentText()](self.parent)
+            self.parent.addWidget(self.parent.method1)
+        except TypeError:
+            self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method1.currentText())
 
         if self.ui.checkBox.isChecked():
-            self.parent.method2 = mvmo(self.parent)
-            self.parent.addWidget(self.parent.method2)
+            try:
+                self.parent.method2 = self.methods[self.ui.method2.currentText()](self.parent)
+                self.parent.addWidget(self.parent.method2)
+            except TypeError:
+                self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method2.currentText())
 
         super().next()
