@@ -8,8 +8,8 @@ class method_selection(MyQWidget):
 
     methods = {
         'MVMO': mvmo,
+        'PSO': None,
         'Trajectory Sensitivity': None,
-        'PSO': None
     }
 
     def __init__(self, parent):
@@ -21,9 +21,6 @@ class method_selection(MyQWidget):
         self.ui.checkBox.clicked.connect(lambda: self.ui.method2.setEnabled(self.ui.checkBox.isChecked()))
 
     def next(self):
-        print(self.ui.method1.currentText())
-        print(self.ui.checkBox.isChecked())
-        print(self.ui.method2.currentText())
 
         try:
             self.parent.method1 = self.methods[self.ui.method1.currentText()](self.parent)
