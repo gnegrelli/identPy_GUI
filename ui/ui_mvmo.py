@@ -20,6 +20,11 @@ class Ui_mvmo_setting(object):
         if mvmo_setting.objectName():
             mvmo_setting.setObjectName(u"mvmo_setting")
         mvmo_setting.resize(827, 396)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(mvmo_setting.sizePolicy().hasHeightForWidth())
+        mvmo_setting.setSizePolicy(sizePolicy)
         mvmo_setting.setMinimumSize(QSize(827, 396))
         self.gridLayout = QGridLayout(mvmo_setting)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -37,11 +42,11 @@ class Ui_mvmo_setting(object):
 
         self.pop_size = QLineEdit(mvmo_setting)
         self.pop_size.setObjectName(u"pop_size")
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pop_size.sizePolicy().hasHeightForWidth())
-        self.pop_size.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.pop_size.sizePolicy().hasHeightForWidth())
+        self.pop_size.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout.addWidget(self.pop_size)
 
@@ -58,8 +63,8 @@ class Ui_mvmo_setting(object):
 
         self.offspring = QLineEdit(mvmo_setting)
         self.offspring.setObjectName(u"offspring")
-        sizePolicy.setHeightForWidth(self.offspring.sizePolicy().hasHeightForWidth())
-        self.offspring.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.offspring.sizePolicy().hasHeightForWidth())
+        self.offspring.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout_2.addWidget(self.offspring)
 
@@ -76,8 +81,8 @@ class Ui_mvmo_setting(object):
 
         self.max_gen = QLineEdit(mvmo_setting)
         self.max_gen.setObjectName(u"max_gen")
-        sizePolicy.setHeightForWidth(self.max_gen.sizePolicy().hasHeightForWidth())
-        self.max_gen.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.max_gen.sizePolicy().hasHeightForWidth())
+        self.max_gen.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout_3.addWidget(self.max_gen)
 
@@ -94,8 +99,8 @@ class Ui_mvmo_setting(object):
 
         self.tolerance = QLineEdit(mvmo_setting)
         self.tolerance.setObjectName(u"tolerance")
-        sizePolicy.setHeightForWidth(self.tolerance.sizePolicy().hasHeightForWidth())
-        self.tolerance.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.tolerance.sizePolicy().hasHeightForWidth())
+        self.tolerance.setSizePolicy(sizePolicy1)
 
         self.horizontalLayout_4.addWidget(self.tolerance)
 
@@ -111,10 +116,6 @@ class Ui_mvmo_setting(object):
 
 
         self.gridLayout.addLayout(self.horizontalLayout_5, 0, 0, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 260, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 1, 0, 1, 1)
 
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
@@ -137,7 +138,48 @@ class Ui_mvmo_setting(object):
         self.horizontalLayout_6.addWidget(self.next)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout_6, 2, 0, 1, 1)
+        self.gridLayout.addLayout(self.horizontalLayout_6, 3, 0, 1, 1)
+
+        self.scrollArea = QScrollArea(mvmo_setting)
+        self.scrollArea.setObjectName(u"scrollArea")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy2)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 807, 207))
+        self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setSizeConstraint(QLayout.SetNoConstraint)
+
+        self.horizontalLayout_9.addLayout(self.verticalLayout_2)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_9.addItem(self.horizontalSpacer_4)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_9)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
+
+        self.gridLayout_2.addLayout(self.verticalLayout_3, 0, 0, 1, 1)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.gridLayout.addWidget(self.scrollArea, 2, 0, 1, 1)
 
 
         self.retranslateUi(mvmo_setting)
