@@ -1,5 +1,7 @@
-from PySide2.QtWidgets import QWidget, QMessageBox
 import re
+import os
+
+from PySide2.QtWidgets import QWidget, QMessageBox
 
 
 class MyQWidget(QWidget):
@@ -35,8 +37,26 @@ class MyQWidget(QWidget):
         msgbox.setIcon(QMessageBox.Warning)
         msgbox.exec_()
 
-    def validate_filepath(self, path='', valid_extensions=['csv', 'txt', 'dat']):
-        if path and path.split('.')[-1] in valid_extensions:
+    def validate_entry(self, entry, valid, type_):
+        func = {
+            'file': lambda x, y: self._validate_filepath(x, y),
+            'range': lambda x, y: print('Not implemented yet!'),
+            'int': lambda x, y: print('Not implemented yet!'),
+            'float': lambda x, y: print('Not implemented yet!'),
+            'str': lambda x, y: print('Not implemented yet!'),
+        }
+        for typ in type_:
+            func[typ](entry, valid)
+
+    def _validate_filepath(self, path='', valid_extensions=None):
+        if valid_extensions is None:
+            valid_extensions = ['csv', 'txt', 'dat']
+
+        if not os.path.exists(path):
+            self.warning_message('Invalide File', 'Path does not exists.')
+            return ''
+
+        if path.split('.')[-1] in valid_extensions:
             return path
         else:
             self.warning_message('Invalide File', 'Only .txt, .csv, and .dat files are supported.')
