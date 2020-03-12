@@ -13,25 +13,34 @@ class mvmo(MyQWidget):
 
         super().__init__(parent)
 
+        self.lower_bound = []
+        self.upper_bound = []
+
         # Mock
-        p = ['R', 'X', 'f', 'z', "X'", 'aqui']
+        p = ['R', 'X', 'f', 'z', "X'", "Kk"]
         self.populate(p)
 
     def next(self):
         print(self.ui.max_gen.text())
+        lower_bound = [lb.text() for lb in self.lower_bound]
+        upper_bound = [ub.text() for ub in self.upper_bound]
+        print(lower_bound)
+        print(upper_bound)
         super().next()
 
     def populate(self, n):
         print('Populating screen with %d instances' % len(n))
         for i in n:
-            self.add_param_row(i)
+            l, u = self.add_param_row(i)
+            self.lower_bound.append(l)
+            self.upper_bound.append(u)
 
     def add_param_row(self, name):
         horizontal_layout = QHBoxLayout()
 
         param_name = QLabel('{} :'.format(name))
         param_name.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
-        param_name.setFixedSize(QSize(30, 25))
+        param_name.setFixedSize(QSize(35, 25))
         horizontal_layout.addWidget(param_name)
 
         from_label = QLabel('from')
@@ -53,6 +62,5 @@ class mvmo(MyQWidget):
         horizontal_layout.addWidget(upper_bound)
 
         self.ui.verticalLayout_2.addLayout(horizontal_layout)
-        # self.ui.verticalLayout_2.re
 
         return lower_bound, upper_bound
