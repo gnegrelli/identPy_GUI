@@ -49,13 +49,18 @@ class MyQWidget(QWidget):
             func[typ](entry, valid)
 
     def _validate_filepath(self, path='', valid_extensions=None):
+        assert isinstance(path, str), 'Path given is not a string'
+
         if valid_extensions is None:
             valid_extensions = ['csv', 'txt', 'dat']
+        assert isinstance(valid_extensions, list), 'Valid file extensions must be given in a list'
 
+        # Check if path exists
         if not os.path.exists(path):
             self.warning_message('Invalide File', 'Path does not exists.')
             return ''
 
+        # Check if file has valid extension
         if path.split('.')[-1] in valid_extensions:
             return path
         else:
