@@ -27,7 +27,7 @@ class StackedExample(QStackedWidget):
         self.file_selection = file_selection(self)
         self.addWidget(self.file_selection)
 
-        self.setCurrentIndex(0)
+        self.setCurrentIndex(3)
 
         self.show()
 
