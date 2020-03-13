@@ -48,6 +48,7 @@ class MyQWidget(QWidget):
             'float': lambda x, y: self._validate_float(x, y),
             'str': lambda x, y: print('Not implemented yet!'),
         }
+        ret = None
         for typ in type_:
             ret = func[typ](entry, valid)
         return ret
@@ -97,7 +98,7 @@ class MyQWidget(QWidget):
         assert callable(validate), 'File extensions validation must be a function'
 
         # Match any char that is not a digit, whitespace, dot or hyphen (negative sign)
-        pattern = re.compile(r'[^\d\s\.\-]')
+        pattern = re.compile(r'[^\d\s.\-]')
         if re.findall(pattern, value) or not value:
             self.warning_message('Invalid Input', 'Input must be a float')
             return ''
@@ -112,6 +113,12 @@ class MyQWidget(QWidget):
         else:
             self.warning_message('Invalid Input', 'Input value does not match its conditions')
             return ''
+
+    def _validate_range(self, value, validate=lambda x: True):
+        pass
+
+    def _validate_list(self, value, validate=lambda x: True):
+        pass
 
     def validate_cols(self, cols='', col_name=''):
         # Match any char that is not a digit, whitespace, comma or hyphen
