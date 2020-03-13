@@ -27,9 +27,9 @@ class file_selection(MyQWidget):
     def next(self):
         path = self.validate_entry(entry=self.ui.path.text(), type_=['file'],
                                    valid=lambda x: x.split('.')[-1] in ['csv', 'txt', 'dat'])
-        print("return path: '{}'".format(path))
-        time_col = self.validate_entry(entry=self.ui.time_col.text(), type_=['int'], valid='{value} == 10')
-        print("return time col: '{}'".format(time_col))
+        print("return path: <type {}> '{}'".format(type(path), path))
+        time_col = self.validate_entry(entry=self.ui.time_col.text(), type_=['int'], valid=lambda x: x == 0)
+        print("return time col: <type {}> '{}'".format(type(time_col), time_col))
         print('input', self.ui.input_col.text())
         input_col = self.validate_cols(self.ui.input_col.text(), 'input')
         print(input_col)

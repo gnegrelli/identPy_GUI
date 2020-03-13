@@ -55,7 +55,7 @@ class MyQWidget(QWidget):
 
     def _validate_filepath(self, path='', validate=None):
         assert isinstance(path, str), 'Path given is not a string'
-        assert callable(validate) or validate is None, 'Valid file extensions must be given in a list'
+        assert callable(validate) or validate is None, 'File extensions validation must be a function'
 
         # Check if path exists
         if not os.path.exists(path):
@@ -69,12 +69,9 @@ class MyQWidget(QWidget):
             self.warning_message('Invalide File', 'Only .txt, .csv, and .dat files are supported.')
             return ''
 
-    def _validate_int(self, value, condition=None):
+    def _validate_int(self, value, validate=None):
         assert isinstance(value, str), 'Value must be a string'
-
-        if condition is None:
-            condition = '{value}'
-        assert isinstance(condition, str), 'Condition must be a string'
+        assert callable(validate) or validate is None, 'Integer validation must be a function'
 
         # Match any char that is not a digit, whitespace or hyphen (negative sign)
         pattern = re.compile(r'[^\d\s-]')
@@ -83,7 +80,7 @@ class MyQWidget(QWidget):
             self.warning_message('Invalid Input', 'Input must be an integer')
             return ''
         else:
-            if eval(condition.format(value=value)):
+            if validate(eval(value)):
                 return int(value)
             else:
                 self.warning_message('Invalid Input', 'Input value does not match its conditions')
