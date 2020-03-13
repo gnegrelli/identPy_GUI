@@ -46,6 +46,7 @@ class MyQWidget(QWidget):
             'range': lambda x, y: self._validate_range(x, y),
             'int': lambda x, y: self._validate_int(x, y),
             'float': lambda x, y: self._validate_float(x, y),
+            'list': lambda x, y: self._validate_list(x, y),
             'str': lambda x, y: print('Not implemented yet!'),
         }
         ret = None
@@ -137,7 +138,24 @@ class MyQWidget(QWidget):
             return ''
 
     def _validate_list(self, value, validate=lambda x: True):
-        pass
+        assert isinstance(value, str), 'Value must be a string'
+        assert callable(validate), 'File extensions validation must be a function'
+
+        # Match any char that is not a digit, whitespace or hyphen (negative sign)
+        pattern = re.compile(r'[^\d\s\-,]')
+        if re.findall(pattern, value) or not value:
+            self.warning_message('Invalid Input', 'Input must be a list (e.g. 1, 2, …)')
+            return ''
+
+        lst = []
+        for val in value.split(','):
+            if not (val.strip() and self._validate_int(val) and validate(val)):
+                self.warning_message('Invalid Input', 'Input value does not match its conditions')
+                return ''
+
+            lst.append(int(val))
+
+        return lst
 
     def validate_cols(self, cols='', col_name=''):
         # Match any char that is not a digit, whitespace, comma or hyphen
