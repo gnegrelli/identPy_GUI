@@ -43,7 +43,7 @@ class MyQWidget(QWidget):
 
         func = {
             'file': lambda x, y: self._validate_filepath(x, y),
-            'range': lambda x, y: print('Not implemented yet!'),
+            'range': lambda x, y: self._validate_range(x, y),
             'int': lambda x, y: self._validate_int(x, y),
             'float': lambda x, y: self._validate_float(x, y),
             'str': lambda x, y: print('Not implemented yet!'),
@@ -82,7 +82,7 @@ class MyQWidget(QWidget):
             return ''
 
         # Validate input as int
-        if validate(eval(value)):
+        if value.strip() and validate(eval(value)):
             try:
                 return int(value)
             except ValueError:
@@ -104,7 +104,7 @@ class MyQWidget(QWidget):
             return ''
 
         # Validate input as float
-        if validate(eval(value)):
+        if value.strip() and validate(eval(value)):
             try:
                 return float(value)
             except ValueError:
@@ -115,7 +115,26 @@ class MyQWidget(QWidget):
             return ''
 
     def _validate_range(self, value, validate=lambda x: True):
-        pass
+        assert isinstance(value, str), 'Value must be a string'
+        assert callable(validate), 'File extensions validation must be a function'
+
+        # Match any char that is not a digit, whitespace or hyphen (negative sign)
+        pattern = re.compile(r'[^\d\s\-]')
+        if re.findall(pattern, value) or not value:
+            self.warning_message('Invalid Input', 'Input must be a range (e.g. 1-4)')
+            return ''
+
+        for val in value.rsplit('-', 1):
+            if not self._validate_int(val) and not validate(eval(val)):
+                self.warning_message('Invalid Input', 'Input value does not match its conditions')
+                return ''
+
+        try:
+            start, stop = map(eval, value.rsplit('-', 1))
+            return range(start, stop + 1)
+        except ValueError:
+            self.warning_message('Invalid Input', 'Input value does not match its conditions')
+            return ''
 
     def _validate_list(self, value, validate=lambda x: True):
         pass
