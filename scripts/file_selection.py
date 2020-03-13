@@ -25,8 +25,8 @@ class file_selection(MyQWidget):
         self.file_browser = MyFileExplorer(self)
 
     def next(self):
-        print('path:', self.ui.path.text())
-        path = self.validate_entry(entry=self.ui.path.text(), type_=['file'])
+        path = self.validate_entry(entry=self.ui.path.text(), type_=['file'],
+                                   valid=lambda x: x.split('.')[-1] in ['csv', 'txt', 'dat'])
         print("return path: '{}'".format(path))
         time_col = self.validate_entry(entry=self.ui.time_col.text(), type_=['int'], valid='{value} == 10')
         print("return time col: '{}'".format(time_col))
