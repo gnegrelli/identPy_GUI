@@ -37,7 +37,6 @@ class MyQWidget(QWidget):
         msgbox.setIcon(QMessageBox.Warning)
         msgbox.exec_()
 
-    # TODO: Pass a function in `valid` using lambda
     def validate_entry(self, entry=None, valid=lambda x: True, type_=None):
         assert isinstance(entry, str), 'Entry must be a string'
         assert isinstance(type_, list), 'Possible types must be given in a list'
@@ -77,16 +76,20 @@ class MyQWidget(QWidget):
 
         # Match any char that is not a digit, whitespace or hyphen (negative sign)
         pattern = re.compile(r'[^\d\s-]')
-
-        if re.match(pattern, value) or not value:
+        if re.findall(pattern, value) or not value:
             self.warning_message('Invalid Input', 'Input must be an integer')
             return ''
-        else:
-            if validate(eval(value)):
+
+        # Validate input as int
+        if validate(eval(value)):
+            try:
                 return int(value)
-            else:
-                self.warning_message('Invalid Input', 'Input value does not match its conditions')
+            except ValueError:
+                self.warning_message('Invalid Input', 'Input must be an integer')
                 return ''
+        else:
+            self.warning_message('Invalid Input', 'Input value does not match its conditions')
+            return ''
 
     # Internal method to validate float numbers
     def _validate_float(self, value, validate=lambda x: True):
@@ -95,22 +98,20 @@ class MyQWidget(QWidget):
 
         # Match any char that is not a digit, whitespace, dot or hyphen (negative sign)
         pattern = re.compile(r'[^\d\s\.\-]')
-
         if re.findall(pattern, value) or not value:
             self.warning_message('Invalid Input', 'Input must be a float')
             return ''
-        else:
-            if validate(eval(value)):
-                try:
-                    return float(value)
-                except ValueError:
-                    self.warning_message('Invalid Input', 'Input must be a float')
-                    return ''
-            else:
-                self.warning_message('Invalid Input', 'Input value does not match its conditions')
+
+        # Validate input as float
+        if validate(eval(value)):
+            try:
+                return float(value)
+            except ValueError:
+                self.warning_message('Invalid Input', 'Input must be a float')
                 return ''
-
-
+        else:
+            self.warning_message('Invalid Input', 'Input value does not match its conditions')
+            return ''
 
     def validate_cols(self, cols='', col_name=''):
         # Match any char that is not a digit, whitespace, comma or hyphen
