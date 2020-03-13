@@ -38,7 +38,7 @@ class MyQWidget(QWidget):
         msgbox.exec_()
 
     # TODO: Pass a function in `valid` using lambda
-    def validate_entry(self, entry=None, valid=None, type_=None):
+    def validate_entry(self, entry=None, valid=lambda x: True, type_=None):
         assert isinstance(entry, str), 'Entry must be a string'
         assert isinstance(type_, list), 'Possible types must be given in a list'
 
@@ -46,13 +46,14 @@ class MyQWidget(QWidget):
             'file': lambda x, y: self._validate_filepath(x, y),
             'range': lambda x, y: print('Not implemented yet!'),
             'int': lambda x, y: self._validate_int(x, y),
-            'float': lambda x, y: print('Not implemented yet!'),
+            'float': lambda x, y: self._validate_float(x, y),
             'str': lambda x, y: print('Not implemented yet!'),
         }
         for typ in type_:
             ret = func[typ](entry, valid)
         return ret
 
+    # Internal method to validate filepaths
     def _validate_filepath(self, path='', validate=lambda x: True):
         assert isinstance(path, str), 'Path given is not a string'
         assert callable(validate), 'File extensions validation must be a function'
@@ -69,6 +70,7 @@ class MyQWidget(QWidget):
             self.warning_message('Invalide File', 'Only .txt, .csv, and .dat files are supported.')
             return ''
 
+    # Internal method to validate int numbers
     def _validate_int(self, value, validate=lambda x: True):
         assert isinstance(value, str), 'Value must be a string'
         assert callable(validate), 'File extensions validation must be a function'
@@ -85,6 +87,30 @@ class MyQWidget(QWidget):
             else:
                 self.warning_message('Invalid Input', 'Input value does not match its conditions')
                 return ''
+
+    # Internal method to validate float numbers
+    def _validate_float(self, value, validate=lambda x: True):
+        assert isinstance(value, str), 'Value must be a string'
+        assert callable(validate), 'File extensions validation must be a function'
+
+        # Match any char that is not a digit, whitespace, dot or hyphen (negative sign)
+        pattern = re.compile(r'[^\d\s\.\-]')
+
+        if re.findall(pattern, value) or not value:
+            self.warning_message('Invalid Input', 'Input must be a float')
+            return ''
+        else:
+            if validate(eval(value)):
+                try:
+                    return float(value)
+                except ValueError:
+                    self.warning_message('Invalid Input', 'Input must be a float')
+                    return ''
+            else:
+                self.warning_message('Invalid Input', 'Input value does not match its conditions')
+                return ''
+
+
 
     def validate_cols(self, cols='', col_name=''):
         # Match any char that is not a digit, whitespace, comma or hyphen
