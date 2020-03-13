@@ -26,11 +26,10 @@ class file_selection(MyQWidget):
 
     def next(self):
         print('path:', self.ui.path.text())
-        # path = self.validate_filepath(self.ui.path.text())
-        # print('return path:', path)
-        print('time', self.ui.time_col.text())
-        # time_col = self.validate_cols(self.ui.time_col.text(), 'time')
-        # print(time_col)
+        path = self.validate_entry(entry=self.ui.path.text(), type_=['file'])
+        print("return path: '{}'".format(path))
+        time_col = self.validate_entry(entry=self.ui.time_col.text(), type_=['int'], valid='{value} == 10')
+        print("return time col: '{}'".format(time_col))
         print('input', self.ui.input_col.text())
         input_col = self.validate_cols(self.ui.input_col.text(), 'input')
         print(input_col)

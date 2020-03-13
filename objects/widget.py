@@ -37,11 +37,15 @@ class MyQWidget(QWidget):
         msgbox.setIcon(QMessageBox.Warning)
         msgbox.exec_()
 
-    def validate_entry(self, entry, valid, type_):
+    # TODO: Pass a function in `valid` using lambda
+    def validate_entry(self, entry=None, valid=None, type_=None):
+        assert isinstance(entry, str), 'Entry must be a string'
+        assert isinstance(type_, list), 'Possible types must be given in a list'
+
         func = {
             'file': lambda x, y: self._validate_filepath(x, y),
             'range': lambda x, y: print('Not implemented yet!'),
-            'int': lambda x, y: print('Not implemented yet!'),
+            'int': lambda x, y: self._validate_int(x, y),
             'float': lambda x, y: print('Not implemented yet!'),
             'str': lambda x, y: print('Not implemented yet!'),
         }
@@ -67,9 +71,29 @@ class MyQWidget(QWidget):
             self.warning_message('Invalide File', 'Only .txt, .csv, and .dat files are supported.')
             return ''
 
+    def _validate_int(self, value, condition=None):
+        assert isinstance(value, str), 'Value must be a string'
+
+        if condition is None:
+            condition = '{value}'
+        assert isinstance(condition, str), 'Condition must be a string'
+
+        # Match any char that is not a digit, whitespace or hyphen (negative sign)
+        pattern = re.compile(r'[^\d\s-]')
+
+        if re.match(pattern, value) or not value:
+            self.warning_message('Invalid Input', 'Input must be an integer')
+            return ''
+        else:
+            if eval(condition.format(value=value)):
+                return int(value)
+            else:
+                self.warning_message('Invalid Input', 'Input value does not match its conditions')
+                return ''
+
     def validate_cols(self, cols='', col_name=''):
         # Match any char that is not a digit, whitespace, comma or hyphen
-        pattern = re.compile(r'[!\d\s,-]')
+        pattern = re.compile(r'[^\d\s,-]')
         if re.match(pattern, cols) or not cols:
             self.warning_message('Invalid Index: ' + col_name.title(),
                                  'Column indices must be integer, list of integers or range.')
