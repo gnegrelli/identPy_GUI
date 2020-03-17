@@ -142,7 +142,7 @@ class MyQWidget(QWidget):
         assert callable(validate), 'File extensions validation must be a function'
 
         # Match any char that is not a digit, whitespace or hyphen (negative sign)
-        pattern = re.compile(r'[^\d\s\-,]')
+        pattern = re.compile(r'[^\d\s\-,]')  # Maybe use this regex '\-?[\d\.]+' and change to `if not re.findall`
         if re.findall(pattern, value) or not value:
             self.warning_message('Invalid Input', 'Input must be a list (e.g. 1, 2, …)')
             return ''
@@ -156,31 +156,3 @@ class MyQWidget(QWidget):
             lst.append(int(val))
 
         return lst
-
-    def validate_cols(self, cols='', col_name=''):
-        # Match any char that is not a digit, whitespace, comma or hyphen
-        pattern = re.compile(r'[^\d\s,-]')
-        if re.match(pattern, cols) or not cols:
-            self.warning_message('Invalid Index: ' + col_name.title(),
-                                 'Column indices must be integer, list of integers or range.')
-            return ''
-
-        if '-' in cols:
-            col_range = cols.split('-')
-            if len(col_range) != 2 or not col_range[-1]:
-                self.warning_message('Invalid Index: ' + col_name.title(),
-                                     'Column indices must be integer, list of integers or range.')
-                return ''
-            start = eval(col_range[0])
-            stop = eval(col_range[1])
-            if not isinstance(start, int) or not isinstance(stop, int):
-                self.warning_message('Invalid Index: ' + col_name.title(),
-                                     'Column indices must be integer, list of integers or range.')
-                return ''
-            cols = list(range(start, stop + 1))
-            if 0 in cols:
-                self.warning_message('Invalid Index: ' + col_name.title(),
-                                     'Index 0 is reserved for time data.')
-            return cols
-
-        return ''

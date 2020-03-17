@@ -35,7 +35,7 @@ class file_selection(MyQWidget):
         input_col = self.validate_entry(entry=self.ui.input_col.text(), type_=['float'])
         print("return input col: <type {}> '{}'".format(type(input_col), input_col))
 
-        output_col = self.validate_entry(entry=self.ui.output_col.text(), type_=['range'])
+        output_col = self.validate_entry(entry=self.ui.output_col.text(), type_=['list'], valid=lambda x: x > 0)
         print("return output col: <type {}> '{}'".format(type(output_col), output_col))
 
         super().next()
