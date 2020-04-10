@@ -1,14 +1,16 @@
 from objects.widget import MyQWidget
 from ui.ui_model_selection import Ui_model_selection
 
+from identpy.Model import SpringMass, Pendulum, ZIM, DFIG
+
 
 class model_selection(MyQWidget):
 
     models = {
-        'Spring-Mass': None,
-        'Pendulum': None,
-        'Linearized Z-IM Load': None,
-        'DFIG': None,
+        'Spring-Mass': SpringMass,
+        'Pendulum': Pendulum,
+        'Linearized Z-IM Load': ZIM,
+        'DFIG': DFIG,
     }
 
     def __init__(self, parent):
