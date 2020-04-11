@@ -9,6 +9,11 @@ from scripts.file_selection import file_selection
 
 class StackedExample(QStackedWidget):
 
+    estimator = None
+    method1 = None
+    method2 = None
+    model = None
+
     def __init__(self):
         super(StackedExample, self).__init__()
 
@@ -27,7 +32,7 @@ class StackedExample(QStackedWidget):
         self.file_selection = file_selection(self)
         self.addWidget(self.file_selection)
 
-        self.setCurrentIndex(3)
+        self.setCurrentIndex(0)
 
         self.show()
 

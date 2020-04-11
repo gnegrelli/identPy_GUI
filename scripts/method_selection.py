@@ -23,16 +23,18 @@ class method_selection(MyQWidget):
     def next(self):
 
         try:
-            self.parent.method1 = self.methods[self.ui.method1.currentText()](self.parent)
-            self.parent.addWidget(self.parent.method1)
+            self.parent.method1_view = self.methods[self.ui.method1.currentText()](self.parent)
         except TypeError:
             self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method1.currentText())
+        else:
+            self.parent.addWidget(self.parent.method1_view)
 
         if self.ui.checkBox.isChecked():
             try:
-                self.parent.method2 = self.methods[self.ui.method2.currentText()](self.parent)
-                self.parent.addWidget(self.parent.method2)
+                self.parent.method2_view = self.methods[self.ui.method2.currentText()](self.parent)
             except TypeError:
                 self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method2.currentText())
+            else:
+                self.parent.addWidget(self.parent.method2_view)
 
         super().next()
