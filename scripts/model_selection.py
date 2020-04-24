@@ -42,16 +42,18 @@ class model_selection(MyQWidget):
     def model_change(self):
         chosen_model = self.ui.selected_model.currentText()
         if chosen_model in self.models.keys():
-            self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
-            self.populate_entries(self.ui.verticalLayout_6, self.models[chosen_model].outputs.keys())
-            self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].outputs.keys())
+            self.inputs = self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
+            self.outputs = self.populate_entries(self.ui.verticalLayout_6, self.models[chosen_model].outputs.keys())
+            self.states = self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].outputs.keys())
         else:
             print('Model not found')
 
     def populate_entries(self, layout, entries):
         self.clear_layout(layout)
+        entries_list = []
         for entry in entries:
-            self.add_entry_row(layout, entry)
+            entries_list.append(self.add_entry_row(layout, entry))
+        return entries_list
 
     def add_entry_row(self, layout, name):
 
@@ -62,11 +64,14 @@ class model_selection(MyQWidget):
         param_name.setFixedSize(QSize(40, 25))
         horizontal_layout.addWidget(param_name)
 
-        lower_bound = QLineEdit()
-        lower_bound.setMaximumSize(QSize(40, 25))
-        horizontal_layout.addWidget(lower_bound)
+        entry = QLineEdit()
+        entry.setMaximumSize(QSize(40, 25))
+        entry.setAlignment(Qt.AlignRight | Qt.AlignTrailing | Qt.AlignVCenter)
+        horizontal_layout.addWidget(entry)
 
         layout.addLayout(horizontal_layout)
+
+        return entry
 
     def next(self):
         print(self.ui.selected_model.currentText())
