@@ -1,9 +1,10 @@
 from objects.widget import MyQWidget
 from ui.ui_mvmo import Ui_mvmo_setting
 
+from identpy.Method import MVMO
+
 from PySide2.QtWidgets import *
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
+from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
 
 
 class mvmo(MyQWidget):
@@ -16,9 +17,7 @@ class mvmo(MyQWidget):
         self.lower_bound = []
         self.upper_bound = []
 
-        # Mock
-        p = ['R', 'X', 'f', 'z', "X'", "Kk"]
-        self.populate(p)
+        self.populate(self.parent.model.parameters.keys())
 
     def next(self):
         print(self.ui.max_gen.text())
@@ -26,6 +25,11 @@ class mvmo(MyQWidget):
         upper_bound = [ub.text() for ub in self.upper_bound]
         print(lower_bound)
         print(upper_bound)
+        if self.parent.method1 is None:
+            self.parent.method1 = MVMO
+        else:
+            self.parent.method2 = MVMO
+        print(self.parent.method1, self.parent.method2)
         super().next()
 
     def populate(self, n):
