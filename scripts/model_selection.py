@@ -42,18 +42,18 @@ class model_selection(MyQWidget):
     def model_change(self):
         chosen_model = self.ui.selected_model.currentText()
         if chosen_model in self.models.keys():
-            print(self.models[chosen_model].inputs)
-            print(self.models[chosen_model].outputs)
             self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
+            self.populate_entries(self.ui.verticalLayout_6, self.models[chosen_model].outputs.keys())
+            self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].outputs.keys())
         else:
             print('Model not found')
 
     def populate_entries(self, layout, entries):
         self.clear_layout(layout)
         for entry in entries:
-            self.add_entry_row(entry)
+            self.add_entry_row(layout, entry)
 
-    def add_entry_row(self, name):
+    def add_entry_row(self, layout, name):
 
         horizontal_layout = QHBoxLayout()
 
@@ -66,9 +66,7 @@ class model_selection(MyQWidget):
         lower_bound.setMaximumSize(QSize(40, 25))
         horizontal_layout.addWidget(lower_bound)
 
-        self.ui.verticalLayout_2.addLayout(horizontal_layout)
-
-        pass
+        layout.addLayout(horizontal_layout)
 
     def next(self):
         print(self.ui.selected_model.currentText())

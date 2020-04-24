@@ -160,8 +160,8 @@ class MyQWidget(QWidget):
     def clear_layout(self, layout):
         for i in range(layout.count()):
             if type(layout.itemAt(i)) == QHBoxLayout:
-                print("layout " + str(layout.itemAt(i)))
+                # print("layout " + str(layout.itemAt(i)))
                 self.clear_layout(layout.itemAt(i))
             else:
-                print("widget" + str(layout.itemAt(i)))
+                # print("widget" + str(layout.itemAt(i)))
                 layout.itemAt(i).widget().close()
