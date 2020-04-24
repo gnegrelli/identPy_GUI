@@ -44,16 +44,16 @@ class model_selection(MyQWidget):
         if chosen_model in self.models.keys():
             print(self.models[chosen_model].inputs)
             print(self.models[chosen_model].outputs)
-            self.populate_input(self.models[chosen_model].inputs.keys())
+            self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
         else:
             print('Model not found')
 
-    def populate_input(self, inputs):
-        self.clear_layout(self.ui.verticalLayout_2)
-        for input in inputs:
-            self.add_input_row(input)
+    def populate_entries(self, layout, entries):
+        self.clear_layout(layout)
+        for entry in entries:
+            self.add_entry_row(entry)
 
-    def add_input_row(self, name):
+    def add_entry_row(self, name):
 
         horizontal_layout = QHBoxLayout()
 

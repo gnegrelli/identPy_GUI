@@ -120,7 +120,7 @@ class Ui_model_selection(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 793, 547))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -161, 793, 547))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.verticalLayout_4 = QVBoxLayout()
@@ -226,6 +226,128 @@ class Ui_model_selection(object):
 
         self.verticalLayout_4.addLayout(self.verticalLayout_3)
 
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.label_10 = QLabel(self.scrollAreaWidgetContents)
+        self.label_10.setObjectName(u"label_10")
+
+        self.verticalLayout_5.addWidget(self.label_10)
+
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_7 = QLabel(self.scrollAreaWidgetContents)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy1)
+        self.label_7.setMaximumSize(QSize(40, 16777215))
+        self.label_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_6.addWidget(self.label_7)
+
+        self.input_col_2 = QLineEdit(self.scrollAreaWidgetContents)
+        self.input_col_2.setObjectName(u"input_col_2")
+        sizePolicy2.setHeightForWidth(self.input_col_2.sizePolicy().hasHeightForWidth())
+        self.input_col_2.setSizePolicy(sizePolicy2)
+        self.input_col_2.setMaximumSize(QSize(40, 16777215))
+        self.input_col_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_6.addWidget(self.input_col_2)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.label_11 = QLabel(self.scrollAreaWidgetContents)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy1.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy1)
+        self.label_11.setMaximumSize(QSize(40, 16777215))
+        self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_8.addWidget(self.label_11)
+
+        self.output_col_2 = QLineEdit(self.scrollAreaWidgetContents)
+        self.output_col_2.setObjectName(u"output_col_2")
+        sizePolicy2.setHeightForWidth(self.output_col_2.sizePolicy().hasHeightForWidth())
+        self.output_col_2.setSizePolicy(sizePolicy2)
+        self.output_col_2.setMaximumSize(QSize(40, 16777215))
+        self.output_col_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_8.addWidget(self.output_col_2)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_8)
+
+
+        self.verticalLayout_5.addLayout(self.verticalLayout_6)
+
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_5)
+
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.label_12 = QLabel(self.scrollAreaWidgetContents)
+        self.label_12.setObjectName(u"label_12")
+
+        self.verticalLayout_7.addWidget(self.label_12)
+
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.label_13 = QLabel(self.scrollAreaWidgetContents)
+        self.label_13.setObjectName(u"label_13")
+        sizePolicy1.setHeightForWidth(self.label_13.sizePolicy().hasHeightForWidth())
+        self.label_13.setSizePolicy(sizePolicy1)
+        self.label_13.setMaximumSize(QSize(40, 16777215))
+        self.label_13.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_9.addWidget(self.label_13)
+
+        self.input_col_3 = QLineEdit(self.scrollAreaWidgetContents)
+        self.input_col_3.setObjectName(u"input_col_3")
+        sizePolicy2.setHeightForWidth(self.input_col_3.sizePolicy().hasHeightForWidth())
+        self.input_col_3.setSizePolicy(sizePolicy2)
+        self.input_col_3.setMaximumSize(QSize(40, 16777215))
+        self.input_col_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_9.addWidget(self.input_col_3)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_9)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.label_14 = QLabel(self.scrollAreaWidgetContents)
+        self.label_14.setObjectName(u"label_14")
+        sizePolicy1.setHeightForWidth(self.label_14.sizePolicy().hasHeightForWidth())
+        self.label_14.setSizePolicy(sizePolicy1)
+        self.label_14.setMaximumSize(QSize(40, 16777215))
+        self.label_14.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_10.addWidget(self.label_14)
+
+        self.output_col_3 = QLineEdit(self.scrollAreaWidgetContents)
+        self.output_col_3.setObjectName(u"output_col_3")
+        sizePolicy2.setHeightForWidth(self.output_col_3.sizePolicy().hasHeightForWidth())
+        self.output_col_3.setSizePolicy(sizePolicy2)
+        self.output_col_3.setMaximumSize(QSize(40, 16777215))
+        self.output_col_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_10.addWidget(self.output_col_3)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_10)
+
+
+        self.verticalLayout_7.addLayout(self.verticalLayout_8)
+
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_7)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_4.addItem(self.verticalSpacer)
@@ -278,6 +400,12 @@ class Ui_model_selection(object):
         self.label_9.setText(QCoreApplication.translate("model_selection", u"<html><head/><body><p><span style=\" font-size:8pt; color:#555753;\">Input columns</span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("model_selection", u"u1:", None))
         self.label_4.setText(QCoreApplication.translate("model_selection", u"u2:", None))
+        self.label_10.setText(QCoreApplication.translate("model_selection", u"<html><head/><body><p><span style=\" font-size:8pt; color:#555753;\">Output columns</span></p></body></html>", None))
+        self.label_7.setText(QCoreApplication.translate("model_selection", u"y1:", None))
+        self.label_11.setText(QCoreApplication.translate("model_selection", u"y2:", None))
+        self.label_12.setText(QCoreApplication.translate("model_selection", u"<html><head/><body><p><span style=\" font-size:8pt; color:#555753;\">Initial conditions</span></p></body></html>", None))
+        self.label_13.setText(QCoreApplication.translate("model_selection", u"x1:", None))
+        self.label_14.setText(QCoreApplication.translate("model_selection", u"x2:", None))
         self.label_6.setText(QCoreApplication.translate("model_selection", u"<html><head/><body><p align=\"justify\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia, diam eget malesuada hendrerit, arcu sem semper sapien, a egestas massa nisl pharetra massa. Phasellus ut ligula nec elit feugiat porttitor in quis odio. Phasellus quis risus augue. Integer nec lorem ullamcorper, blandit ante sit amet, dignissim lorem. Pellentesque sed molestie ligula. Nulla a tellus facilisis, mollis odio sed, viverra magna. Aenean egestas augue nisi, sit amet aliquet neque condimentum id. Praesent sit amet est dignissim, blandit nibh eu, auctor nulla. Pellentesque tempus ex eget purus tempor, eu ultrices quam lobortis. Suspendisse tristique sem ac pellentesque hendrerit. Nulla facilisi. Cras volutpat ante quis diam finibus, ut gravida orci laoreet. Mauris imperdiet, elit et finibus varius, dolor nisi venenatis tortor, sit amet porta metus diam eu sapien. </p><p align=\"justify\">Pellentesque hendrerit sollicitudin nisi at blandit. Nulla viverra commodo nisl. Pellentesque sed sem m"
                         "etus. Quisque placerat, urna sit amet volutpat viverra, ex ex ullamcorper nibh, id tempor dolor nisi vel neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut facilisis felis et nibh tincidunt facilisis. Curabitur ultricies velit odio. Donec vel imperdiet tellus, ut blandit ligula. Vestibulum augue quam, euismod sed dolor nec, molestie consequat massa. Etiam tristique consequat ex, vitae fringilla sapien condimentum non. In non laoreet diam. Nullam tempor finibus augue, nec sagittis mauris dapibus a. Morbi in quam diam. Sed quis ex ante. Aenean vitae lacus nibh. </p><p align=\"justify\">Nulla id justo quis dui varius tempus. Phasellus in ligula urna. Maecenas semper commodo nibh id auctor. Aliquam erat volutpat. Nulla tincidunt ligula felis, sit amet dignissim mi aliquet at. Curabitur id consectetur libero. Sed eu massa non enim bibendum ultricies sed a libero. </p><p align=\"justify\">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus m"
                         "us. Quisque in bibendum mauris. In lacinia at purus et rhoncus. Aenean at tristique diam. Maecenas accumsan elit sit amet mattis egestas. Fusce a risus leo. Nam non elit sit amet justo ultricies eleifend at nec nisi. Vivamus vehicula mi eget tempor posuere. Vestibulum mollis fermentum eros. Praesent arcu enim, sollicitudin sit amet lobortis et, mollis vitae nisi. </p></body></html>", None))
