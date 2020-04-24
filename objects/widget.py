@@ -1,7 +1,7 @@
 import re
 import os
 
-from PySide2.QtWidgets import QWidget, QMessageBox
+from PySide2.QtWidgets import QWidget, QMessageBox, QHBoxLayout
 
 
 class MyQWidget(QWidget):
@@ -156,3 +156,12 @@ class MyQWidget(QWidget):
             lst.append(int(val))
 
         return lst
+
+    def clear_layout(self, layout):
+        for i in range(layout.count()):
+            if type(layout.itemAt(i)) == QHBoxLayout:
+                print("layout " + str(layout.itemAt(i)))
+                self.clear_layout(layout.itemAt(i))
+            else:
+                print("widget" + str(layout.itemAt(i)))
+                layout.itemAt(i).widget().close()
