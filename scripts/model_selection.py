@@ -53,7 +53,7 @@ class model_selection(MyQWidget):
         if chosen_model in self.models.keys():
             self.inputs = self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
             self.outputs = self.populate_entries(self.ui.verticalLayout_6, self.models[chosen_model].outputs.keys())
-            self.states = self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].outputs.keys())
+            self.states = self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].states.keys())
         else:
             print('Model not found')
 
