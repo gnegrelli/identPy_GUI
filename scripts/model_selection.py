@@ -28,6 +28,10 @@ class model_selection(MyQWidget):
 
         self.ui.find_path.clicked.connect(lambda: self.get_filepath())
 
+        self.inputs = []
+        self.outputs = []
+        self.states = []
+
     def get_filepath(self):
         # Use Pyside2 File Dialog - filepath come out weird
         # dialog = QtWidgets.QFileDialog()
@@ -74,9 +78,51 @@ class model_selection(MyQWidget):
         return entry
 
     def next(self):
-        print(self.ui.selected_model.currentText())
+        go_on = True
+        u_cols = []
+        y_cols = []
+        x_0 = []
+
+        # Validate selected model
         if self.ui.selected_model.currentText() in self.models.keys():
             self.parent.model = self.models[self.ui.selected_model.currentText()]
-            super().next()
         else:
             self.warning_message('Invalid Model', 'Please select a valid model from the list')
+            go_on = False
+
+        # Validate data file
+        if go_on:
+            filepath = self._validate_filepath(self.ui.path.text(),
+                                               validate=lambda x: x.split('.')[-1] in ['csv', 'txt', 'dat'])
+            if filepath is '':
+                go_on = False
+
+        # Validate input columns
+        if go_on and self.inputs:
+            for i in self.inputs:
+                column = self._validate_int(i.text(), validate=lambda x: x > 0)
+                if column is '':
+                    go_on = False
+                    break
+                u_cols.append(column)
+
+        # Validate output columns
+        if go_on and self.outputs:
+            for i in self.outputs:
+                column = self._validate_int(i.text(), validate=lambda x: x > 0)
+                if column is '':
+                    go_on = False
+                    break
+                y_cols.append(column)
+
+        # Validate initial values of states
+        if go_on and self.states:
+            for i in self.states:
+                column = self._validate_float(i.text())
+                if column is '':
+                    go_on = False
+                    break
+                x_0.append(column)
+
+        if go_on:
+            super().next()
