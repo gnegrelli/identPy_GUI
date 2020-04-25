@@ -1,3 +1,6 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
 from PySide2 import QtWidgets
 from PySide2.QtWidgets import *
 from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
@@ -7,6 +10,8 @@ from ui.ui_model_selection import Ui_model_selection
 from scripts.file_selection import MyFileExplorer
 
 from identpy.Model import SpringMass, Pendulum, ZIM, DFIG
+from identpy.Model.Implicit_Methods import RK4
+from identpy.Objects import Estimator
 
 
 class model_selection(MyQWidget):
@@ -79,13 +84,16 @@ class model_selection(MyQWidget):
 
     def next(self):
         go_on = True
+
+        model = None
+        filepath = None
         u_cols = []
         y_cols = []
         x_0 = []
 
         # Validate selected model
         if self.ui.selected_model.currentText() in self.models.keys():
-            self.parent.model = self.models[self.ui.selected_model.currentText()]
+            model = self.models[self.ui.selected_model.currentText()]
         else:
             self.warning_message('Invalid Model', 'Please select a valid model from the list')
             go_on = False
@@ -125,4 +133,13 @@ class model_selection(MyQWidget):
                 x_0.append(column)
 
         if go_on:
+            # Retrieve input and output data from file
+            u, y = Estimator.input_read(filepath, u_cols, y_cols)
+
+            # Add model to Estimator object
+            self.parent.estimator.add_model(model(np.array(x_0), u[0], u, RK4(u[0][0], u[-1][0])))
+
+            # Add output measured to Estimator object
+            self.parent.estimator.add_measures(y)
+
             super().next()

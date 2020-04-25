@@ -5,10 +5,12 @@ from scripts.initial_page import initial_page
 from scripts.model_selection import model_selection
 from scripts.method_selection import method_selection
 
+from identpy.Objects import Estimator
+
 
 class StackedExample(QStackedWidget):
 
-    estimator = None
+    estimator = Estimator()
     method1 = None
     method2 = None
     model = None
