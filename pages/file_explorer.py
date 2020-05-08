@@ -2,15 +2,16 @@ from PySide2 import QtWidgets
 from PySide2 import QtGui
 from PySide2 import QtCore
 
-from ui.ui_file_explorer import Ui_file_explorer
-from objects.widget import MyQWidget
+from ui import FileExplorer
+from objects import BaseWidget
 
 import webbrowser
 
 
-class MyFileExplorer(Ui_file_explorer, QtWidgets.QMainWindow):
+class MyFileExplorer(FileExplorer, QtWidgets.QMainWindow):
+
     def __init__(self, parent=None):
-        assert isinstance(parent, MyQWidget) or parent is None, 'Parent must be MyQWidget'
+        assert isinstance(parent, BaseWidget) or parent is None, 'Parent must be MyQWidget'
 
         self.parent = parent
         if self.parent:

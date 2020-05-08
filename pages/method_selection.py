@@ -1,10 +1,11 @@
-from objects.widget import MyQWidget
-from ui.ui_method_selection import Ui_method_selection
+from objects import BaseWidget
 
-from scripts.mvmo import mvmo
+from ui import MethodSelection
+
+from pages.mvmo import mvmo
 
 
-class method_selection(MyQWidget):
+class method_selection(BaseWidget):
 
     methods = {
         'MVMO': mvmo,
@@ -14,7 +15,7 @@ class method_selection(MyQWidget):
 
     def __init__(self, parent):
 
-        self.ui = Ui_method_selection()
+        self.ui = MethodSelection()
 
         super().__init__(parent)
 

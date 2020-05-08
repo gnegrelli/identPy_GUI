@@ -4,7 +4,8 @@ import os
 from PySide2.QtWidgets import QWidget, QMessageBox, QHBoxLayout
 
 
-class MyQWidget(QWidget):
+class BaseWidget(QWidget):
+
     def __init__(self, parent):
         super().__init__(parent)
         self.parent = parent
