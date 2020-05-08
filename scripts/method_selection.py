@@ -1,5 +1,6 @@
 from objects import BaseWidget
-from ui.ui_method_selection import Ui_method_selection
+
+from ui import MethodSelection
 
 from scripts.mvmo import mvmo
 
@@ -14,7 +15,7 @@ class method_selection(BaseWidget):
 
     def __init__(self, parent):
 
-        self.ui = Ui_method_selection()
+        self.ui = MethodSelection()
 
         super().__init__(parent)
 

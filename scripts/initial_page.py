@@ -1,10 +1,12 @@
 from objects import BaseWidget
-from ui.ui_initial_page import Ui_initialPage
+
+from ui import InitialPage
 
 
 class initial_page(BaseWidget):
+
     def __init__(self, parent):
 
-        self.ui = Ui_initialPage()
+        self.ui = InitialPage()
 
         super().__init__(parent)

@@ -5,7 +5,9 @@ from PySide2.QtWidgets import *
 from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
 
 from objects import BaseWidget
-from ui.ui_model_selection import Ui_model_selection
+
+from ui import ModelSelection
+
 from scripts.file_selection import MyFileExplorer
 
 from identpy.Model import SpringMass, Pendulum, ZIM, DFIG
@@ -24,7 +26,7 @@ class model_selection(BaseWidget):
 
     def __init__(self, parent):
 
-        self.ui = Ui_model_selection()
+        self.ui = ModelSelection()
 
         super().__init__(parent)
 

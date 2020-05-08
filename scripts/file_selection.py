@@ -1,13 +1,14 @@
 from objects import BaseWidget
-from ui.ui_file_selection import Ui_file_selection
+from ui import FileSelection
 
 from scripts.file_explorer import MyFileExplorer
 
 
 class file_selection(BaseWidget):
+
     def __init__(self, parent):
 
-        self.ui = Ui_file_selection()
+        self.ui = FileSelection()
 
         super().__init__(parent)
 

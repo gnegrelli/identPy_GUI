@@ -1,5 +1,6 @@
-from PySide2.QtWidgets import *
 import sys
+
+from PySide2.QtWidgets import *
 
 from scripts.initial_page import initial_page
 from scripts.model_selection import model_selection
