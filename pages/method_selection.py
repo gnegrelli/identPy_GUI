@@ -2,7 +2,7 @@ from objects import BaseWidget
 
 from ui import MethodSelection
 
-from scripts.mvmo import mvmo
+from pages.mvmo import mvmo
 
 
 class method_selection(BaseWidget):

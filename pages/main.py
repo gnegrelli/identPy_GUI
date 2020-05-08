@@ -2,9 +2,9 @@ import sys
 
 from PySide2.QtWidgets import *
 
-from scripts.initial_page import initial_page
-from scripts.model_selection import model_selection
-from scripts.method_selection import method_selection
+from pages.initial_page import initial_page
+from pages.model_selection import model_selection
+from pages.method_selection import method_selection
 
 from identpy.Objects import Estimator
 

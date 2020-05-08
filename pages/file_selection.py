@@ -1,7 +1,7 @@
 from objects import BaseWidget
 from ui import FileSelection
 
-from scripts.file_explorer import MyFileExplorer
+from pages.file_explorer import MyFileExplorer
 
 
 class file_selection(BaseWidget):

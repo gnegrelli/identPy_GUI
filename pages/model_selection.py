@@ -8,7 +8,7 @@ from objects import BaseWidget
 
 from ui import ModelSelection
 
-from scripts.file_selection import MyFileExplorer
+from pages.file_selection import MyFileExplorer
 
 from identpy.Model import SpringMass, Pendulum, ZIM, DFIG
 from identpy.Model.Implicit_Methods import RK4
