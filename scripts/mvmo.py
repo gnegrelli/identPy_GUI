@@ -17,7 +17,7 @@ class mvmo(MyQWidget):
         self.lower_bound = []
         self.upper_bound = []
 
-        self.populate(self.parent.model.parameters.keys())
+        self.populate(self.parent.estimator.model.parameters.keys())
 
     def next(self):
         print(self.ui.max_gen.text())
