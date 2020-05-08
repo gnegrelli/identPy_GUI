@@ -1,10 +1,10 @@
-from objects.widget import MyQWidget
+from objects import BaseWidget
 from ui.ui_file_selection import Ui_file_selection
 
 from scripts.file_explorer import MyFileExplorer
 
 
-class file_selection(MyQWidget):
+class file_selection(BaseWidget):
     def __init__(self, parent):
 
         self.ui = Ui_file_selection()

@@ -1,10 +1,10 @@
-from objects.widget import MyQWidget
+from objects import BaseWidget
 from ui.ui_method_selection import Ui_method_selection
 
 from scripts.mvmo import mvmo
 
 
-class method_selection(MyQWidget):
+class method_selection(BaseWidget):
 
     methods = {
         'MVMO': mvmo,

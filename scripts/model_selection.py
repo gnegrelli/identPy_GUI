@@ -1,11 +1,10 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 from PySide2 import QtWidgets
 from PySide2.QtWidgets import *
 from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
 
-from objects.widget import MyQWidget
+from objects import BaseWidget
 from ui.ui_model_selection import Ui_model_selection
 from scripts.file_selection import MyFileExplorer
 
@@ -14,7 +13,7 @@ from identpy.Model.Implicit_Methods import RK4
 from identpy.Objects import Estimator
 
 
-class model_selection(MyQWidget):
+class model_selection(BaseWidget):
 
     models = {
         'Spring-Mass': SpringMass,
