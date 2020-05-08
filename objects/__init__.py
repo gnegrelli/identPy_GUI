@@ -1,0 +1,1 @@
+from objects.widget import BaseWidget
