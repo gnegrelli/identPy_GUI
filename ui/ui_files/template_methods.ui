@@ -150,7 +150,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>MVMO Settings</string>
+        <string>MethodSettings</string>
        </property>
       </widget>
      </item>
@@ -172,7 +172,7 @@
          <item>
           <widget class="QLabel" name="pop_size_label">
            <property name="text">
-            <string>Population Size</string>
+            <string>Set #1</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -202,7 +202,7 @@
          <item>
           <widget class="QLabel" name="offspring_label">
            <property name="text">
-            <string>Offspring</string>
+            <string>Set #2</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -232,7 +232,7 @@
          <item>
           <widget class="QLabel" name="max_gen_label">
            <property name="text">
-            <string>Max. Generation</string>
+            <string>Set #3</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -262,7 +262,7 @@
          <item>
           <widget class="QLabel" name="tolerance_label">
            <property name="text">
-            <string>Tolerance</string>
+            <string>Set #4</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
