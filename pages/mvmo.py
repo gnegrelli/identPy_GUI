@@ -1,6 +1,6 @@
-from objects import BaseWidget
+from objects import MethodWidget
 
-from ui import MVMO
+from ui import UI_MVMO
 
 from identpy.Method import MVMO
 
@@ -8,10 +8,10 @@ from PySide2.QtWidgets import *
 from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
 
 
-class mvmo(BaseWidget):
+class mvmo(MethodWidget):
     def __init__(self, parent):
 
-        self.ui = MVMO()
+        self.ui = UI_MVMO()
 
         super().__init__(parent)
 
