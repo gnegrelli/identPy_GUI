@@ -16,8 +16,6 @@ class mvmo(MethodWidget):
 
         super().__init__(parent)
 
-        self.populate(self.parent.estimator.model.parameters.keys())
-
     def add_param_row(self, name):
         horizontal_layout = QHBoxLayout()
 

@@ -14,11 +14,7 @@ class ts_page(MethodWidget):
 
         self.ui = UI_TS()
 
-        self.initial_values = []
-
         super().__init__(parent)
-
-        self.populate(self.parent.estimator.model.parameters.keys())
 
     def add_param_row(self, name):
         horizontal_layout = QHBoxLayout()
