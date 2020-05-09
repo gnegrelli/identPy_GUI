@@ -2,13 +2,15 @@
 
 GUI application for IdentPy software created using PySide2.
 
-## Instalation
+## Installation
 
-Install the project requirements by execeuting the following command on the terminal:
+Install the project requirements by executing the following command on the terminal:
 
 ```bash
 $ pip install -r requirements.txt
 ```
+
+## Page design
 
 In order to design the software pages, one should install the Qt 5 Designer. 
 
