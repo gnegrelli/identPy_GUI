@@ -120,41 +120,41 @@ class Ui_ts_setting(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.pop_size_label = QLabel(ts_setting)
-        self.pop_size_label.setObjectName(u"pop_size_label")
-        self.pop_size_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.max_iteration_label = QLabel(ts_setting)
+        self.max_iteration_label.setObjectName(u"max_iteration_label")
+        self.max_iteration_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.horizontalLayout.addWidget(self.pop_size_label)
+        self.horizontalLayout.addWidget(self.max_iteration_label)
 
-        self.pop_size = QLineEdit(ts_setting)
-        self.pop_size.setObjectName(u"pop_size")
+        self.max_iteration = QLineEdit(ts_setting)
+        self.max_iteration.setObjectName(u"max_iteration")
         sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.pop_size.sizePolicy().hasHeightForWidth())
-        self.pop_size.setSizePolicy(sizePolicy3)
-        self.pop_size.setMaximumSize(QSize(90, 16777215))
+        sizePolicy3.setHeightForWidth(self.max_iteration.sizePolicy().hasHeightForWidth())
+        self.max_iteration.setSizePolicy(sizePolicy3)
+        self.max_iteration.setMaximumSize(QSize(90, 16777215))
 
-        self.horizontalLayout.addWidget(self.pop_size)
+        self.horizontalLayout.addWidget(self.max_iteration)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.offspring_label = QLabel(ts_setting)
-        self.offspring_label.setObjectName(u"offspring_label")
-        self.offspring_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.tolerance_label = QLabel(ts_setting)
+        self.tolerance_label.setObjectName(u"tolerance_label")
+        self.tolerance_label.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.horizontalLayout_2.addWidget(self.offspring_label)
+        self.horizontalLayout_2.addWidget(self.tolerance_label)
 
-        self.offspring = QLineEdit(ts_setting)
-        self.offspring.setObjectName(u"offspring")
-        sizePolicy3.setHeightForWidth(self.offspring.sizePolicy().hasHeightForWidth())
-        self.offspring.setSizePolicy(sizePolicy3)
-        self.offspring.setMaximumSize(QSize(90, 16777215))
+        self.tolerance = QLineEdit(ts_setting)
+        self.tolerance.setObjectName(u"tolerance")
+        sizePolicy3.setHeightForWidth(self.tolerance.sizePolicy().hasHeightForWidth())
+        self.tolerance.setSizePolicy(sizePolicy3)
+        self.tolerance.setMaximumSize(QSize(90, 16777215))
 
-        self.horizontalLayout_2.addWidget(self.offspring)
+        self.horizontalLayout_2.addWidget(self.tolerance)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -180,7 +180,7 @@ class Ui_ts_setting(object):
         self.previous.setText(QCoreApplication.translate("ts_setting", u"Previous", None))
         self.next.setText(QCoreApplication.translate("ts_setting", u"Next", None))
         self.label.setText(QCoreApplication.translate("ts_setting", u"Trajectory Sensitivity Settings", None))
-        self.pop_size_label.setText(QCoreApplication.translate("ts_setting", u"Max. Iteration", None))
-        self.offspring_label.setText(QCoreApplication.translate("ts_setting", u"Tolerance", None))
+        self.max_iteration_label.setText(QCoreApplication.translate("ts_setting", u"Max. Iteration", None))
+        self.tolerance_label.setText(QCoreApplication.translate("ts_setting", u"Tolerance", None))
     # retranslateUi
 

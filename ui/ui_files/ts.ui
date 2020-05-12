@@ -170,7 +170,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QLabel" name="pop_size_label">
+          <widget class="QLabel" name="max_iteration_label">
            <property name="text">
             <string>Max. Iteration</string>
            </property>
@@ -180,7 +180,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="pop_size">
+          <widget class="QLineEdit" name="max_iteration">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -200,7 +200,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QLabel" name="offspring_label">
+          <widget class="QLabel" name="tolerance_label">
            <property name="text">
             <string>Tolerance</string>
            </property>
@@ -210,7 +210,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="offspring">
+          <widget class="QLineEdit" name="tolerance">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
