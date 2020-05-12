@@ -100,7 +100,7 @@ class BaseWidget(QWidget):
         assert callable(validate), 'File extensions validation must be a function'
 
         # Match any char that is not a digit, whitespace, dot or hyphen (negative sign)
-        pattern = re.compile(r'[^\d\s.\-]')
+        pattern = re.compile(r'[^\d\s.\-e]')
         if re.findall(pattern, value) or not value:
             self.warning_message('Invalid Input', 'Input must be a float')
             return ''
