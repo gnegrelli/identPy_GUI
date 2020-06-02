@@ -35,16 +35,21 @@ class ts_page(MethodWidget):
         return initial_value
 
     def next(self):
+        # Retrieve and validate initial values of parameters
         p0 = np.array([self._validate_float(p.text()) for p in self.entries])
         go_on = False if '' in list(p0) else True
 
+        # Retrieve and validate maximum iteration value
         if go_on:
             max_iteration = self._validate_int(self.ui.max_iteration.text(), validate=lambda x: x > 0)
             go_on = False if max_iteration == '' else True
 
+        # Retrieve and validate tolerance
         if go_on:
             tolerance = self._validate_float(self.ui.tolerance.text(), validate=lambda x: x > 0)
             go_on = False if tolerance == '' else True
 
+        # Set TS and move on
         if go_on:
             self.parent.estimator.add_method(TS(p0, max_it=max_iteration, tol=tolerance))
+            super().next()
