@@ -3,6 +3,7 @@ from objects import BaseWidget
 from ui import MethodSelection
 
 from pages.mvmo import mvmo
+from pages.ts import ts_page
 
 
 class method_selection(BaseWidget):
@@ -10,7 +11,7 @@ class method_selection(BaseWidget):
     methods = {
         'MVMO': mvmo,
         'PSO': None,
-        'Trajectory Sensitivity': None,
+        'Trajectory Sensitivity': ts_page,
     }
 
     def __init__(self, parent):

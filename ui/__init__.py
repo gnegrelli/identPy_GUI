@@ -7,3 +7,4 @@ from ui.ui_model_selection import Ui_model_selection as ModelSelection
 from ui.ui_method_selection import Ui_method_selection as MethodSelection
 
 from ui.ui_mvmo import Ui_mvmo_setting as UI_MVMO
+from ui.ui_ts import Ui_ts_setting as UI_TS

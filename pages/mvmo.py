@@ -4,6 +4,9 @@ from ui import UI_MVMO
 
 from identpy.Method import MVMO
 
+from PySide2.QtWidgets import QHBoxLayout, QLineEdit, QLabel
+from PySide2.QtCore import QSize, Qt
+
 
 class mvmo(MethodWidget):
 
@@ -13,15 +16,40 @@ class mvmo(MethodWidget):
 
         super().__init__(parent)
 
-        self.lower_bound = []
-        self.upper_bound = []
+    def add_param_row(self, name):
+        horizontal_layout = QHBoxLayout()
 
-        self.populate(self.parent.estimator.model.parameters.keys())
+        param_name = QLabel('{} :'.format(name))
+        param_name.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        param_name.setFixedSize(QSize(35, 25))
+        horizontal_layout.addWidget(param_name)
+
+        from_label = QLabel('from')
+        from_label.setAlignment(Qt.AlignCenter)
+        from_label.setFixedSize(QSize(34, 25))
+        horizontal_layout.addWidget(from_label)
+
+        lower_bound = QLineEdit()
+        lower_bound.setMaximumSize(QSize(75, 75))
+        horizontal_layout.addWidget(lower_bound)
+
+        to_label = QLabel('to')
+        to_label.setAlignment(Qt.AlignCenter)
+        to_label.setFixedSize(QSize(15, 25))
+        horizontal_layout.addWidget(to_label)
+
+        upper_bound = QLineEdit()
+        upper_bound.setMaximumSize(QSize(75, 75))
+        horizontal_layout.addWidget(upper_bound)
+
+        self.ui.verticalLayout_2.addLayout(horizontal_layout)
+
+        return lower_bound, upper_bound
 
     def next(self):
-        print(self.ui.max_gen.text())
-        lower_bound = [lb.text() for lb in self.lower_bound]
-        upper_bound = [ub.text() for ub in self.upper_bound]
+        bounds = list(zip(*self.entries))
+        lower_bound = [lb.text() for lb in bounds[0]]
+        upper_bound = [ub.text() for ub in bounds[1]]
         print(lower_bound)
         print(upper_bound)
         if self.parent.method1 is None:
