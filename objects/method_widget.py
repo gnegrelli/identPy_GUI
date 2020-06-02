@@ -12,7 +12,6 @@ class MethodWidget(BaseWidget, QWidget):
         self.populate(self.parent.estimator.model.parameters.keys())
 
     def populate(self, n):
-        print('Populating screen with %d instances' % len(n))
         for i in n:
             self.entries.append(self.add_param_row(i))
 
