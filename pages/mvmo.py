@@ -1,3 +1,5 @@
+import numpy as np
+
 from objects import MethodWidget
 
 from ui import UI_MVMO
@@ -48,13 +50,11 @@ class mvmo(MethodWidget):
 
     def next(self):
         bounds = list(zip(*self.entries))
-        lower_bound = [lb.text() for lb in bounds[0]]
-        upper_bound = [ub.text() for ub in bounds[1]]
-        print(lower_bound)
-        print(upper_bound)
-        if self.parent.method1 is None:
-            self.parent.method1 = MVMO
-        else:
-            self.parent.method2 = MVMO
-        print(self.parent.method1, self.parent.method2)
-        super().next()
+        lower_bound = np.array([self._validate_float(lb.text()) for lb in bounds[0]])
+        upper_bound = np.array([self._validate_float(ub.text()) for ub in bounds[1]])
+        go_on = False if '' in list(lower_bound) + list(upper_bound) else True
+
+        if go_on:
+            self.parent.estimator.add_method(MVMO(lower_bound, upper_bound))
+            print(self.parent.estimator.method1, self.parent.estimator.method2)
+            super().next()
