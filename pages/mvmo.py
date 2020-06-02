@@ -49,12 +49,35 @@ class mvmo(MethodWidget):
         return lower_bound, upper_bound
 
     def next(self):
+        # Retrieve and validate boundaries values of parameters
         bounds = list(zip(*self.entries))
         lower_bound = np.array([self._validate_float(lb.text()) for lb in bounds[0]])
         upper_bound = np.array([self._validate_float(ub.text()) for ub in bounds[1]])
         go_on = False if '' in list(lower_bound) + list(upper_bound) else True
 
+        # Retrieve and validate population size
         if go_on:
-            self.parent.estimator.add_method(MVMO(lower_bound, upper_bound))
-            print(self.parent.estimator.method1, self.parent.estimator.method2)
+            pop_size = self._validate_int(self.ui.pop_size.text(), validate=lambda x: x > 0)
+            go_on = False if pop_size == '' else True
+
+        # Retrieve and validate offspring size
+        if go_on:
+            offspring = self._validate_int(self.ui.offspring.text(), validate=lambda x: x > 0)
+            go_on = False if offspring == '' else True
+
+        # Retrieve and validate maximum generation value
+        if go_on:
+            max_generation = self._validate_int(self.ui.max_gen.text(), validate=lambda x: x > 0)
+            go_on = False if max_generation == '' else True
+
+        # Retrieve and validate tolerance
+        if go_on:
+            tolerance = self._validate_float(self.ui.tolerance.text(), validate=lambda x: x > 0)
+            go_on = False if tolerance == '' else True
+
+        # Set MVMO and move on
+        if go_on:
+            self.parent.estimator.add_method(MVMO(lower_bound, upper_bound,
+                                                  pop_sz=pop_size, offsp_sz=offspring,
+                                                  max_gen=max_generation, tol=tolerance))
             super().next()
