@@ -34,36 +34,47 @@ class Ui_results(object):
         self.tabWidget.setPalette(palette)
         self.tabWidget.setTabPosition(QTabWidget.North)
         self.tabWidget.setTabShape(QTabWidget.Rounded)
-        self.tab = QWidget()
-        self.tab.setObjectName(u"tab")
-        self.tabWidget.addTab(self.tab, QString())
-        self.tab_2 = QWidget()
-        self.tab_2.setObjectName(u"tab_2")
-        self.label_3 = QLabel(self.tab_2)
+        self.tab_output = QWidget()
+        self.tab_output.setObjectName(u"tab_output")
+        self.tabWidget.addTab(self.tab_output, str())
+        self.tab_param = QWidget()
+        self.tab_param.setObjectName(u"tab_param")
+        self.label_3 = QLabel(self.tab_param)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(10, 10, 98, 20))
-        self.label_4 = QLabel(self.tab_2)
+        self.label_4 = QLabel(self.tab_param)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(10, 30, 98, 20))
-        self.tabWidget.addTab(self.tab_2, QString())
+        self.tabWidget.addTab(self.tab_param, str())
+        self.tab_log = QWidget()
+        self.tab_log.setObjectName(u"tab_log")
+        self.gridLayout_2 = QGridLayout(self.tab_log)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.log = QTextBrowser(self.tab_log)
+        self.log.setObjectName(u"log")
+        self.log.setTextInteractionFlags(Qt.LinksAccessibleByKeyboard|Qt.LinksAccessibleByMouse|Qt.TextBrowserInteraction|Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
+
+        self.gridLayout_2.addWidget(self.log, 0, 0, 1, 1)
+
+        self.tabWidget.addTab(self.tab_log, str())
 
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.label = QLabel(results)
-        self.label.setObjectName(u"label")
+        self.iter = QLabel(results)
+        self.iter.setObjectName(u"iter")
 
-        self.horizontalLayout_2.addWidget(self.label)
+        self.horizontalLayout_2.addWidget(self.iter)
 
         self.horizontalSpacer_3 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_3)
 
-        self.label_2 = QLabel(results)
-        self.label_2.setObjectName(u"label_2")
+        self.error = QLabel(results)
+        self.error.setObjectName(u"error")
 
-        self.horizontalLayout_2.addWidget(self.label_2)
+        self.horizontalLayout_2.addWidget(self.error)
 
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -106,12 +117,18 @@ class Ui_results(object):
 
     def retranslateUi(self, results):
         results.setWindowTitle(QCoreApplication.translate("results", u"Form", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("results", u"Tab 1", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_output), QCoreApplication.translate("results", u"Outputs", None))
         self.label_3.setText(QCoreApplication.translate("results", u"p1: 2", None))
         self.label_4.setText(QCoreApplication.translate("results", u"p2: -5", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("results", u"Tab 2", None))
-        self.label.setText(QCoreApplication.translate("results", u"Iteration #999", None))
-        self.label_2.setText(QCoreApplication.translate("results", u"Error: 2.81", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_param), QCoreApplication.translate("results", u"Parameters", None))
+        self.log.setHtml(QCoreApplication.translate("results", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_log), QCoreApplication.translate("results", u"Log", None))
+        self.iter.setText(QCoreApplication.translate("results", u"Iteration #999", None))
+        self.error.setText(QCoreApplication.translate("results", u"Error: 2.81", None))
         self.previous.setText(QCoreApplication.translate("results", u"Previous", None))
         self.next.setText(QCoreApplication.translate("results", u"Next", None))
     # retranslateUi
