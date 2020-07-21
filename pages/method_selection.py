@@ -39,4 +39,9 @@ class method_selection(BaseWidget):
             else:
                 self.parent.addWidget(self.parent.method2_view)
 
+                self.parent.method1_view.ui.estimate.hide()
+                self.parent.method2_view.ui.next.hide()
+        else:
+            self.parent.method1_view.ui.next.hide()
+
         super().next()
