@@ -23,6 +23,20 @@ class Ui_results(object):
         results.setMinimumSize(QSize(827, 396))
         self.gridLayout = QGridLayout(results)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.iter = QLabel(results)
+        self.iter.setObjectName(u"iter")
+
+        self.horizontalLayout_2.addWidget(self.iter)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+
         self.tabWidget = QTabWidget(results)
         self.tabWidget.setObjectName(u"tabWidget")
         palette = QPalette()
@@ -36,6 +50,13 @@ class Ui_results(object):
         self.tabWidget.setTabShape(QTabWidget.Rounded)
         self.tab_output = QWidget()
         self.tab_output.setObjectName(u"tab_output")
+        self.gridLayout_4 = QGridLayout(self.tab_output)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.tab_layout = QGridLayout()
+        self.tab_layout.setObjectName(u"tab_layout")
+
+        self.gridLayout_4.addLayout(self.tab_layout, 0, 0, 1, 1)
+
         self.tabWidget.addTab(self.tab_output, str())
         self.tab_param = QWidget()
         self.tab_param.setObjectName(u"tab_param")
@@ -59,29 +80,6 @@ class Ui_results(object):
         self.tabWidget.addTab(self.tab_log, str())
 
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
-
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.iter = QLabel(results)
-        self.iter.setObjectName(u"iter")
-
-        self.horizontalLayout_2.addWidget(self.iter)
-
-        self.horizontalSpacer_3 = QSpacerItem(10, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_3)
-
-        self.error = QLabel(results)
-        self.error.setObjectName(u"error")
-
-        self.horizontalLayout_2.addWidget(self.error)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -117,6 +115,7 @@ class Ui_results(object):
 
     def retranslateUi(self, results):
         results.setWindowTitle(QCoreApplication.translate("results", u"Form", None))
+        self.iter.setText(QCoreApplication.translate("results", u"Iteration #999", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_output), QCoreApplication.translate("results", u"Outputs", None))
         self.label_3.setText(QCoreApplication.translate("results", u"p1: 2", None))
         self.label_4.setText(QCoreApplication.translate("results", u"p2: -5", None))
@@ -127,8 +126,6 @@ class Ui_results(object):
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_log), QCoreApplication.translate("results", u"Log", None))
-        self.iter.setText(QCoreApplication.translate("results", u"Iteration #999", None))
-        self.error.setText(QCoreApplication.translate("results", u"Error: 2.81", None))
         self.previous.setText(QCoreApplication.translate("results", u"Previous", None))
         self.next.setText(QCoreApplication.translate("results", u"Next", None))
     # retranslateUi
