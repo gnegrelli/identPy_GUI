@@ -1,4 +1,4 @@
-from objects import BaseWidget
+from objects import BaseWidget, MethodWidget
 
 from ui import MethodSelection
 
@@ -23,6 +23,8 @@ class method_selection(BaseWidget):
         self.ui.checkBox.clicked.connect(lambda: self.ui.method2.setEnabled(self.ui.checkBox.isChecked()))
 
     def next(self):
+        while isinstance(self.parent.widget(3), MethodWidget):
+            self.parent.removeWidget(self.parent.widget(3))
 
         try:
             self.parent.method1_view = self.methods[self.ui.method1.currentText()](self.parent)
