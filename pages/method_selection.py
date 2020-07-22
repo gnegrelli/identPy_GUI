@@ -1,4 +1,4 @@
-from objects import BaseWidget
+from objects import BaseWidget, MethodWidget
 
 from ui import MethodSelection
 
@@ -23,13 +23,15 @@ class method_selection(BaseWidget):
         self.ui.checkBox.clicked.connect(lambda: self.ui.method2.setEnabled(self.ui.checkBox.isChecked()))
 
     def next(self):
+        while isinstance(self.parent.widget(3), MethodWidget):
+            self.parent.removeWidget(self.parent.widget(3))
 
         try:
             self.parent.method1_view = self.methods[self.ui.method1.currentText()](self.parent)
         except TypeError:
             self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method1.currentText())
         else:
-            self.parent.addWidget(self.parent.method1_view)
+            self.parent.insertWidget(3, self.parent.method1_view)
 
         if self.ui.checkBox.isChecked():
             try:
@@ -37,6 +39,11 @@ class method_selection(BaseWidget):
             except TypeError:
                 self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method2.currentText())
             else:
-                self.parent.addWidget(self.parent.method2_view)
+                self.parent.insertWidget(4, self.parent.method2_view)
+
+                self.parent.method1_view.ui.estimate.hide()
+                self.parent.method2_view.ui.next.hide()
+        else:
+            self.parent.method1_view.ui.next.hide()
 
         super().next()
