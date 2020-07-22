@@ -48,7 +48,7 @@ class mvmo(MethodWidget):
 
         return lower_bound, upper_bound
 
-    def next(self):
+    def verify_settings(self):
         # Retrieve and validate boundaries values of parameters
         bounds = list(zip(*self.entries))
         lower_bound = np.array([self._validate_float(lb.text()) for lb in bounds[0]])
@@ -80,4 +80,4 @@ class mvmo(MethodWidget):
             self.parent.estimator.add_method(MVMO(lower_bound, upper_bound,
                                                   pop_sz=pop_size, offsp_sz=offspring,
                                                   max_gen=max_generation, tol=tolerance))
-            super().next()
+        return go_on
