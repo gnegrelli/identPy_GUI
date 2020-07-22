@@ -26,7 +26,15 @@ class MethodWidget(BaseWidget, QWidget):
 
         return None
 
+    def verify_settings(self):
+        return True
+
+    def next(self):
+        if self.verify_settings():
+            super().next()
+
     def estimate(self):
-        print('Estimation')
-        # self.parent.estimator()
-        print('estimated')
+        if self.verify_settings():
+            super().next()
+            # TODO: Ideally, estimation should start when results page becomes the current page on the StackedWidget
+            self.parent.estimator()
