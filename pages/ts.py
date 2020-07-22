@@ -34,7 +34,7 @@ class ts_page(MethodWidget):
 
         return initial_value
 
-    def next(self):
+    def verify_settings(self):
         # Retrieve and validate initial values of parameters
         p0 = np.array([self._validate_float(p.text()) for p in self.entries])
         go_on = False if '' in list(p0) else True
@@ -52,4 +52,5 @@ class ts_page(MethodWidget):
         # Set TS and move on
         if go_on:
             self.parent.estimator.add_method(TS(p0, max_it=max_iteration, tol=tolerance))
-            super().next()
+
+        return go_on
