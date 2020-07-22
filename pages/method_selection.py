@@ -31,7 +31,7 @@ class method_selection(BaseWidget):
         except TypeError:
             self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method1.currentText())
         else:
-            self.parent.insertWidget(-2, self.parent.method1_view)
+            self.parent.insertWidget(3, self.parent.method1_view)
 
         if self.ui.checkBox.isChecked():
             try:
@@ -39,7 +39,7 @@ class method_selection(BaseWidget):
             except TypeError:
                 self.warning_message('Missing Method', '%s Method not implemented yet.' % self.ui.method2.currentText())
             else:
-                self.parent.insertWidget(-2, self.parent.method2_view)
+                self.parent.insertWidget(4, self.parent.method2_view)
 
                 self.parent.method1_view.ui.estimate.hide()
                 self.parent.method2_view.ui.next.hide()
