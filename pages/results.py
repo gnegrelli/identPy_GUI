@@ -1,3 +1,5 @@
+import time
+
 from objects import BaseWidget
 
 from ui import Ui_results
@@ -12,6 +14,7 @@ else:
 # from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 
+
 class results(BaseWidget):
     def __init__(self, parent):
         self.ui = Ui_results()
@@ -19,13 +22,9 @@ class results(BaseWidget):
         super().__init__(parent)
 
         fig = plt.figure()
-        axs = fig.subplots(nrows=1, ncols=2)
-        t = range(10)
-        for i, ax in enumerate(axs):
-            ax.plot(t, list(map(lambda x: x**i, t)))
+
+        self.parent.estimator.add_figure(fig)
 
         static_canvas = FigureCanvas(fig)
         self.ui.tab_layout.addWidget(static_canvas)
         # self.addToolBar(NavigationToolbar(static_canvas, self))
-
-
