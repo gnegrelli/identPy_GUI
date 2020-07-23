@@ -35,6 +35,8 @@ class StackedExample(QStackedWidget):
         self.results = results(self)
         self.addWidget(self.results)
 
+        self.currentChanged.connect(lambda _: self.currentWidget().on_focus())
+
         self.setCurrentIndex(0)
 
         self.show()

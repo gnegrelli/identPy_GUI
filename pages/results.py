@@ -28,3 +28,6 @@ class results(BaseWidget):
         static_canvas = FigureCanvas(fig)
         self.ui.tab_layout.addWidget(static_canvas)
         # self.addToolBar(NavigationToolbar(static_canvas, self))
+
+    def on_focus(self):
+        self.parent.estimator()

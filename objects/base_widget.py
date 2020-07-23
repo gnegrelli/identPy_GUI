@@ -24,6 +24,10 @@ class BaseWidget(QWidget):
         except AttributeError:
             pass
 
+    @staticmethod
+    def on_focus():
+        pass
+
     def next(self):
         self.parent.setCurrentIndex(self.parent.currentIndex() + 1)
 
