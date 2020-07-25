@@ -1,7 +1,7 @@
-import time
+import matplotlib.pyplot as plt
 
+from threading import *
 from objects import BaseWidget
-
 from ui import Ui_results
 
 from matplotlib.backends.qt_compat import is_pyqt5
@@ -11,8 +11,6 @@ if is_pyqt5():
 else:
     from matplotlib.backends.backend_qt4agg import (
         FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
-# from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
 
 
 class results(BaseWidget):
@@ -25,9 +23,10 @@ class results(BaseWidget):
 
         self.parent.estimator.add_figure(fig)
 
-        static_canvas = FigureCanvas(fig)
-        self.ui.tab_layout.addWidget(static_canvas)
-        # self.addToolBar(NavigationToolbar(static_canvas, self))
+        canvas = FigureCanvas(fig)
+        self.ui.tab_layout.addWidget(canvas)
+
+        self.t = Thread(target=self.parent.estimator)
 
     def on_focus(self):
-        self.parent.estimator()
+        self.t.start()
