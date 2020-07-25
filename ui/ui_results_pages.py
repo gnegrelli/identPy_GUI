@@ -23,20 +23,6 @@ class Ui_results(object):
         results.setMinimumSize(QSize(827, 396))
         self.gridLayout = QGridLayout(results)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.iter = QLabel(results)
-        self.iter.setObjectName(u"iter")
-
-        self.horizontalLayout_2.addWidget(self.iter)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
-
         self.tabWidget = QTabWidget(results)
         self.tabWidget.setObjectName(u"tabWidget")
         palette = QPalette()
@@ -60,12 +46,14 @@ class Ui_results(object):
         self.tabWidget.addTab(self.tab_output, str())
         self.tab_param = QWidget()
         self.tab_param.setObjectName(u"tab_param")
+        self.gridLayout_3 = QGridLayout(self.tab_param)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.label_3 = QLabel(self.tab_param)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(10, 10, 98, 20))
-        self.label_4 = QLabel(self.tab_param)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(10, 30, 98, 20))
+        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+
+        self.gridLayout_3.addWidget(self.label_3, 0, 0, 1, 1)
+
         self.tabWidget.addTab(self.tab_param, str())
         self.tab_log = QWidget()
         self.tab_log.setObjectName(u"tab_log")
@@ -80,6 +68,20 @@ class Ui_results(object):
         self.tabWidget.addTab(self.tab_log, str())
 
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.iter = QLabel(results)
+        self.iter.setObjectName(u"iter")
+
+        self.horizontalLayout_2.addWidget(self.iter)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_2.addItem(self.horizontalSpacer_4)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -107,7 +109,7 @@ class Ui_results(object):
 
         self.retranslateUi(results)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(results)
@@ -115,10 +117,8 @@ class Ui_results(object):
 
     def retranslateUi(self, results):
         results.setWindowTitle(QCoreApplication.translate("results", u"Form", None))
-        self.iter.setText(QCoreApplication.translate("results", u"Iteration #999", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_output), QCoreApplication.translate("results", u"Outputs", None))
         self.label_3.setText(QCoreApplication.translate("results", u"p1: 2", None))
-        self.label_4.setText(QCoreApplication.translate("results", u"p2: -5", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_param), QCoreApplication.translate("results", u"Parameters", None))
         self.log.setHtml(QCoreApplication.translate("results", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -126,6 +126,7 @@ class Ui_results(object):
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_log), QCoreApplication.translate("results", u"Log", None))
+        self.iter.setText(QCoreApplication.translate("results", u"Iteration #999", None))
         self.previous.setText(QCoreApplication.translate("results", u"Previous", None))
         self.next.setText(QCoreApplication.translate("results", u"Next", None))
     # retranslateUi
