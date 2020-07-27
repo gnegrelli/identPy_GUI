@@ -48,20 +48,20 @@ class Ui_results(object):
         self.tab_param.setObjectName(u"tab_param")
         self.gridLayout_3 = QGridLayout(self.tab_param)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.label_3 = QLabel(self.tab_param)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.p_values = QLabel(self.tab_param)
+        self.p_values.setObjectName(u"p_values")
+        self.p_values.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
-        self.gridLayout_3.addWidget(self.label_3, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.p_values, 0, 0, 1, 1)
 
         self.tabWidget.addTab(self.tab_param, str())
         self.tab_log = QWidget()
         self.tab_log.setObjectName(u"tab_log")
         self.gridLayout_2 = QGridLayout(self.tab_log)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.log = QTextBrowser(self.tab_log)
+        self.log = QTextEdit(self.tab_log)
         self.log.setObjectName(u"log")
-        self.log.setTextInteractionFlags(Qt.LinksAccessibleByKeyboard|Qt.LinksAccessibleByMouse|Qt.TextBrowserInteraction|Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
+        self.log.setTextInteractionFlags(Qt.TextSelectableByKeyboard|Qt.TextSelectableByMouse)
 
         self.gridLayout_2.addWidget(self.log, 0, 0, 1, 1)
 
@@ -109,7 +109,7 @@ class Ui_results(object):
 
         self.retranslateUi(results)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(results)
@@ -118,7 +118,7 @@ class Ui_results(object):
     def retranslateUi(self, results):
         results.setWindowTitle(QCoreApplication.translate("results", u"Form", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_output), QCoreApplication.translate("results", u"Outputs", None))
-        self.label_3.setText(QCoreApplication.translate("results", u"p1: 2", None))
+        self.p_values.setText(QCoreApplication.translate("results", u"p1: 2", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_param), QCoreApplication.translate("results", u"Parameters", None))
         self.log.setHtml(QCoreApplication.translate("results", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -126,7 +126,7 @@ class Ui_results(object):
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_log), QCoreApplication.translate("results", u"Log", None))
-        self.iter.setText(QCoreApplication.translate("results", u"Iteration #999", None))
+        self.iter.setText(QCoreApplication.translate("results", u"-	Error: -	Iter.: -", None))
         self.previous.setText(QCoreApplication.translate("results", u"Previous", None))
         self.next.setText(QCoreApplication.translate("results", u"Next", None))
     # retranslateUi
