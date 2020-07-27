@@ -30,6 +30,8 @@ class results(BaseWidget):
 
         self.t = Thread(target=self.parent.estimator)
 
+        signal('iteration').connect(self.update_iter)
+
     def previous(self):
         try:
             self.parent.estimator.remove_method()
@@ -39,3 +41,10 @@ class results(BaseWidget):
 
     def on_focus(self):
         self.t.start()
+
+    def update_iter(self, sender, **kwargs):
+        self.ui.iter.setText(str(sender))
+        log = '{},{:.6f}'.format(kwargs['counter'], kwargs['error'])
+        for p in kwargs['p']:
+            log += ',{:.5f}'.format(p)
+        self.ui.log.append(log)
