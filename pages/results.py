@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 
-from threading import *
+from blinker import signal
+from threading import Thread
+
 from objects import BaseWidget
 from ui import Ui_results
 
@@ -27,6 +29,13 @@ class results(BaseWidget):
         self.ui.tab_layout.addWidget(canvas)
 
         self.t = Thread(target=self.parent.estimator)
+
+    def previous(self):
+        try:
+            self.parent.estimator.remove_method()
+        except IndexError:
+            raise IndexError('No method set')
+        super().previous()
 
     def on_focus(self):
         self.t.start()

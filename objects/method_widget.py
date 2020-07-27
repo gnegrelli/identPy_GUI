@@ -32,3 +32,10 @@ class MethodWidget(BaseWidget, QWidget):
     def next(self):
         if self.verify_settings():
             super().next()
+
+    def previous(self):
+        try:
+            self.parent.estimator.remove_method()
+        except IndexError:
+            pass
+        super().previous()
