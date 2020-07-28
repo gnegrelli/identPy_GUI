@@ -30,6 +30,7 @@ class results(BaseWidget):
 
         self.t = Thread(target=self.parent.estimator)
 
+        signal('start_method').connect(self.method_started)
         signal('iteration').connect(self.update_iter)
 
     def previous(self):
@@ -41,6 +42,9 @@ class results(BaseWidget):
 
     def on_focus(self):
         self.t.start()
+
+    def method_started(self, sender, **kwargs):
+        self.ui.log.append('--- {}'.format(sender.name))
 
     def update_iter(self, sender, **kwargs):
         self.ui.iter.setText(str(sender))
