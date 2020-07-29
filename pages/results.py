@@ -32,6 +32,7 @@ class results(BaseWidget):
 
         signal('start_method').connect(self.method_started)
         signal('iteration').connect(self.update_iter)
+        signal('solution_updated').connect(self.update_solution)
         signal('end_method').connect(self.method_ended)
 
     def previous(self):
@@ -58,3 +59,6 @@ class results(BaseWidget):
         for p in kwargs['p']:
             log += ',{:.5f}'.format(p)
         self.ui.log.append(log)
+
+    def update_solution(self, send, **kwargs):
+        self.ui.p_values.setText(str(self.parent.estimator.model))
