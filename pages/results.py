@@ -32,6 +32,7 @@ class results(BaseWidget):
 
         signal('start_method').connect(self.method_started)
         signal('iteration').connect(self.update_iter)
+        signal('end_method').connect(self.method_ended)
 
     def previous(self):
         try:
@@ -44,7 +45,12 @@ class results(BaseWidget):
         self.t.start()
 
     def method_started(self, sender, **kwargs):
+        if self.ui.log.toPlainText():
+            self.ui.log.append('')
         self.ui.log.append('--- {}'.format(sender.name))
+
+    def method_ended(self, sender, **kwargs):
+        self.ui.log.append('--- {} elapsed time: {:.2f} s'.format(sender.name, sender.elapsed_time))
 
     def update_iter(self, sender, **kwargs):
         self.ui.iter.setText(str(sender))
