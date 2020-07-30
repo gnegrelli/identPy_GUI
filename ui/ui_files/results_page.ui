@@ -86,7 +86,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="p_values">
          <property name="text">
-          <string>p1: 2</string>
+          <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

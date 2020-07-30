@@ -60,5 +60,5 @@ class results(BaseWidget):
             log += ',{:.5f}'.format(p)
         self.ui.log.append(log)
 
-    def update_solution(self, send, **kwargs):
-        self.ui.p_values.setText(str(self.parent.estimator.model))
+    def update_solution(self, sender, **kwargs):
+        self.ui.p_values.setText(self.parent.estimator.model.__str__(title=False))

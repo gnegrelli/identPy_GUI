@@ -118,7 +118,7 @@ class Ui_results(object):
     def retranslateUi(self, results):
         results.setWindowTitle(QCoreApplication.translate("results", u"Form", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_output), QCoreApplication.translate("results", u"Outputs", None))
-        self.p_values.setText(QCoreApplication.translate("results", u"p1: 2", None))
+        self.p_values.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_param), QCoreApplication.translate("results", u"Parameters", None))
         self.log.setHtml(QCoreApplication.translate("results", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
