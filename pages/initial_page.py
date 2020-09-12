@@ -1,6 +1,5 @@
-from objects import BaseWidget
-
 from ui import InitialPage
+from objects import BaseWidget
 
 
 class initial_page(BaseWidget):

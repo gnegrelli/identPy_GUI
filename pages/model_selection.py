@@ -1,18 +1,16 @@
 import numpy as np
 
-from PySide2 import QtWidgets
 from PySide2.QtWidgets import *
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint, QRect, QSize, QUrl, Qt)
+from PySide2.QtCore import QSize, Qt
 
-from objects import BaseWidget
+from identpy.models import SpringMass, Pendulum, ZIM, DFIG
+from identpy.models.implicit_methods import RK4
+from identpy.objects import Estimator
 
 from ui import ModelSelection
+from objects import BaseWidget
 
 from pages.file_selection import MyFileExplorer
-
-from identpy.Model import SpringMass, Pendulum, ZIM, DFIG
-from identpy.Model.Implicit_Methods import RK4
-from identpy.Objects import Estimator
 
 
 class model_selection(BaseWidget):

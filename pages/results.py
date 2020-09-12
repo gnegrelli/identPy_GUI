@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 from blinker import signal
 from threading import Thread
 
-from objects import BaseWidget
-from ui import Ui_results
-
 from matplotlib.backends.qt_compat import is_pyqt5
 if is_pyqt5():
     from matplotlib.backends.backend_qt5agg import (
@@ -13,6 +10,9 @@ if is_pyqt5():
 else:
     from matplotlib.backends.backend_qt4agg import (
         FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+
+from ui import Ui_results
+from objects import BaseWidget
 
 
 class results(BaseWidget):
