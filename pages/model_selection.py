@@ -22,6 +22,13 @@ class model_selection(BaseWidget):
         'DFIG': DFIG,
     }
 
+    infos = {
+        'Spring-Mass': None,
+        'Pendulum': None,
+        'Linearized Z-IM Load': None,
+        'DFIG': '../DFIG.html',
+    }
+
     def __init__(self, parent):
 
         self.ui = ModelSelection()
@@ -53,6 +60,11 @@ class model_selection(BaseWidget):
             self.inputs = self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
             self.outputs = self.populate_entries(self.ui.verticalLayout_6, self.models[chosen_model].outputs.keys())
             self.states = self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].states.keys())
+            if self.infos[chosen_model] is not None:
+                with open(self.infos[chosen_model], 'r') as f:
+                    self.ui.label_6.setText(f.read())
+            else:
+                self.ui.label_6.setText(chosen_model)
         else:
             print('Model not found')
 
