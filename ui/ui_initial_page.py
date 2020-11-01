@@ -52,9 +52,10 @@ class Ui_initialPage(object):
         self.description.setAutoFillBackground(False)
         self.description.setTextFormat(Qt.AutoText)
         self.description.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
-        self.description.setWordWrap(False)
+        self.description.setWordWrap(True)
         self.description.setMargin(0)
         self.description.setIndent(0)
+        self.description.setOpenExternalLinks(True)
         self.description.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
         self.verticalLayout.addWidget(self.description)
@@ -99,7 +100,7 @@ class Ui_initialPage(object):
     def retranslateUi(self, initialPage):
         initialPage.setWindowTitle(QCoreApplication.translate("initialPage", u"Form", None))
         self.name.setText(QCoreApplication.translate("initialPage", u"identPy v1.0", None))
-        self.description.setText(QCoreApplication.translate("initialPage", u"<html><head/><body><p>This software was developed by Gabriel Negrelli as part of his Masters Project in Electrical Engineering.</p><p>It's purpose is to estimate parameters of dynamic systems models using various approaches.</p><p>This software is available on <a href=\"github.com/gnegrelli/identPy\"><span style=\" text-decoration: underline; color:#0000ff;\">github.com/gnegrelli/identPy</span></a></p></body></html>", None))
+        self.description.setText(QCoreApplication.translate("initialPage", u"<html><head/><body><p>This software was developed by Gabriel Negrelli, under advisement of Prof. Elmer Cari, as part of his Masters Project in Electrical Engineering at the University of S\u00e3o Paulo - S\u00e3o Carlos.</p><p>The software was developed at LACOSEP and its main purpose is to estimate parameters of dynamic systems models using various approaches.</p><p>This software is available at <a href=https://github.com/gnegrelli/identPy_GUI><span style=\" text-decoration: underline; color:#0000ff;\">github.com/gnegrelli/identPy_GUI</span></a></p></body></html>", None))
         self.next.setText(QCoreApplication.translate("initialPage", u"Next", None))
     # retranslateUi
 

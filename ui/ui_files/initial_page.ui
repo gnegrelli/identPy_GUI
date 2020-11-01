@@ -72,7 +72,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This software was developed by Gabriel Negrelli as part of his Masters Project in Electrical Engineering.&lt;/p&gt;&lt;p&gt;It's purpose is to estimate parameters of dynamic systems models using various approaches.&lt;/p&gt;&lt;p&gt;This software is available on &lt;a href=&quot;github.com/gnegrelli/identPy&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;github.com/gnegrelli/identPy&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This software was developed by Gabriel Negrelli, under advisement of Prof. Elmer Cari, as part of his Masters Project in Electrical Engineering at the University of São Paulo - São Carlos.&lt;/p&gt;&lt;p&gt;The software was developed at LACOSEP and its main purpose is to estimate parameters of dynamic systems models using various approaches.&lt;/p&gt;&lt;p&gt;This software is available at &lt;a href=https://github.com/gnegrelli/identPy_GUI&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;github.com/gnegrelli/identPy_GUI&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::AutoText</enum>
@@ -81,13 +81,16 @@
           <set>Qt::AlignHCenter|Qt::AlignTop</set>
          </property>
          <property name="wordWrap">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <property name="margin">
           <number>0</number>
          </property>
          <property name="indent">
           <number>0</number>
+         </property>
+         <property name="openExternalLinks">
+          <bool>true</bool>
          </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse</set>

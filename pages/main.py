@@ -2,11 +2,12 @@ import sys
 
 from PySide2.QtWidgets import *
 
+from identpy.objects import Estimator
+
 from pages.initial_page import initial_page
 from pages.model_selection import model_selection
 from pages.method_selection import method_selection
-
-from identpy.Objects import Estimator
+from pages.results import results
 
 
 class StackedExample(QStackedWidget):
@@ -30,6 +31,11 @@ class StackedExample(QStackedWidget):
 
         self.method_selection = method_selection(self)
         self.addWidget(self.method_selection)
+
+        self.results = results(self)
+        self.addWidget(self.results)
+
+        self.currentChanged.connect(lambda _: self.currentWidget().on_focus())
 
         self.setCurrentIndex(0)
 

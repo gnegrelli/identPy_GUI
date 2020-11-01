@@ -1,13 +1,12 @@
 import numpy as np
 
-from objects import MethodWidget
+from PySide2.QtCore import QSize, Qt
+from PySide2.QtWidgets import QHBoxLayout, QLineEdit, QLabel
+
+from identpy.methods import MVMO
 
 from ui import UI_MVMO
-
-from identpy.Method import MVMO
-
-from PySide2.QtWidgets import QHBoxLayout, QLineEdit, QLabel
-from PySide2.QtCore import QSize, Qt
+from objects import MethodWidget
 
 
 class mvmo(MethodWidget):

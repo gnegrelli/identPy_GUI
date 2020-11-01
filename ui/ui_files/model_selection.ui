@@ -216,7 +216,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-161</y>
+        <y>0</y>
         <width>793</width>
         <height>547</height>
        </rect>
@@ -647,9 +647,15 @@
           </size>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia, diam eget malesuada hendrerit, arcu sem semper sapien, a egestas massa nisl pharetra massa. Phasellus ut ligula nec elit feugiat porttitor in quis odio. Phasellus quis risus augue. Integer nec lorem ullamcorper, blandit ante sit amet, dignissim lorem. Pellentesque sed molestie ligula. Nulla a tellus facilisis, mollis odio sed, viverra magna. Aenean egestas augue nisi, sit amet aliquet neque condimentum id. Praesent sit amet est dignissim, blandit nibh eu, auctor nulla. Pellentesque tempus ex eget purus tempor, eu ultrices quam lobortis. Suspendisse tristique sem ac pellentesque hendrerit. Nulla facilisi. Cras volutpat ante quis diam finibus, ut gravida orci laoreet. Mauris imperdiet, elit et finibus varius, dolor nisi venenatis tortor, sit amet porta metus diam eu sapien. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Pellentesque hendrerit sollicitudin nisi at blandit. Nulla viverra commodo nisl. Pellentesque sed sem metus. Quisque placerat, urna sit amet volutpat viverra, ex ex ullamcorper nibh, id tempor dolor nisi vel neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut facilisis felis et nibh tincidunt facilisis. Curabitur ultricies velit odio. Donec vel imperdiet tellus, ut blandit ligula. Vestibulum augue quam, euismod sed dolor nec, molestie consequat massa. Etiam tristique consequat ex, vitae fringilla sapien condimentum non. In non laoreet diam. Nullam tempor finibus augue, nec sagittis mauris dapibus a. Morbi in quam diam. Sed quis ex ante. Aenean vitae lacus nibh. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Nulla id justo quis dui varius tempus. Phasellus in ligula urna. Maecenas semper commodo nibh id auctor. Aliquam erat volutpat. Nulla tincidunt ligula felis, sit amet dignissim mi aliquet at. Curabitur id consectetur libero. Sed eu massa non enim bibendum ultricies sed a libero. &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque in bibendum mauris. In lacinia at purus et rhoncus. Aenean at tristique diam. Maecenas accumsan elit sit amet mattis egestas. Fusce a risus leo. Nam non elit sit amet justo ultricies eleifend at nec nisi. Vivamus vehicula mi eget tempor posuere. Vestibulum mollis fermentum eros. Praesent arcu enim, sollicitudin sit amet lobortis et, mollis vitae nisi. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
          <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+         <property name="openExternalLinks">
           <bool>true</bool>
          </property>
         </widget>

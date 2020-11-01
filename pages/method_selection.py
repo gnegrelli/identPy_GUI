@@ -1,6 +1,5 @@
-from objects import BaseWidget, MethodWidget
-
 from ui import MethodSelection
+from objects import BaseWidget, MethodWidget
 
 from pages.mvmo import mvmo
 from pages.ts import ts_page
