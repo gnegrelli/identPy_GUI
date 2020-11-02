@@ -12,7 +12,7 @@ class MethodWidget(BaseWidget, QWidget):
         self.populate(self.parent.estimator.model.parameters.keys())
 
         try:
-            self.ui.estimate.clicked.connect(lambda: self.estimate())
+            self.ui.estimate.clicked.connect(lambda: self.next())
         except AttributeError:
             pass
 
@@ -33,8 +33,9 @@ class MethodWidget(BaseWidget, QWidget):
         if self.verify_settings():
             super().next()
 
-    def estimate(self):
-        if self.verify_settings():
-            super().next()
-            # TODO: Ideally, estimation should start when results page becomes the current page on the StackedWidget
-            self.parent.estimator()
+    def previous(self):
+        try:
+            self.parent.estimator.remove_method()
+        except IndexError:
+            pass
+        super().previous()

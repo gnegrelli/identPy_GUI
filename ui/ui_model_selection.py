@@ -365,17 +365,15 @@ class Ui_model_selection(object):
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.lbl_info.sizePolicy().hasHeightForWidth())
-        self.lbl_info.setSizePolicy(sizePolicy3)
-        self.lbl_info.setMinimumSize(QSize(500, 0))
         self.lbl_info.setAlignment(Qt.AlignJustify|Qt.AlignTop)
         self.lbl_info.setWordWrap(True)
+        self.lbl_info.setOpenExternalLinks(True)
 
         self.gridLayout_2.addWidget(self.lbl_info, 0, 2, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.gridLayout.addWidget(self.scrollArea, 3, 0, 1, 1)
-
 
         self.retranslateUi(model_selection)
 

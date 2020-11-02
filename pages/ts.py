@@ -1,13 +1,12 @@
 import numpy as np
 
-from objects import MethodWidget
-
-from ui import UI_TS
-
-from identpy.Method import TS
-
 from PySide2.QtWidgets import QHBoxLayout, QLineEdit, QLabel
 from PySide2.QtCore import QSize, Qt
+
+from identpy.methods import TS
+
+from ui import UI_TS
+from objects import MethodWidget
 
 
 class ts_page(MethodWidget):

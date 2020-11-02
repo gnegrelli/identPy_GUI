@@ -1,11 +1,10 @@
+import webbrowser
+
 from PySide2 import QtWidgets
-from PySide2 import QtGui
 from PySide2 import QtCore
 
 from ui import FileExplorer
 from objects import BaseWidget
-
-import webbrowser
 
 
 class MyFileExplorer(FileExplorer, QtWidgets.QMainWindow):

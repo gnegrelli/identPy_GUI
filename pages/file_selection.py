@@ -1,5 +1,5 @@
-from objects import BaseWidget
 from ui import FileSelection
+from objects import BaseWidget
 
 from pages.file_explorer import MyFileExplorer
 
