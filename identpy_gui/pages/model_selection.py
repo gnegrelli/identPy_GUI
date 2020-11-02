@@ -7,10 +7,10 @@ from identpy.models import SpringMass, Pendulum, ZIM, DFIG
 from identpy.models.implicit_methods import RK4
 from identpy.objects import Estimator
 
-from ui import ModelSelection
-from objects import BaseWidget
-
-from pages.file_selection import MyFileExplorer
+from identpy_gui.ui import ModelSelection
+from identpy_gui.utils import PathResolver
+from identpy_gui.objects import BaseWidget
+from identpy_gui.pages.file_selection import MyFileExplorer
 
 
 class model_selection(BaseWidget):
@@ -26,7 +26,7 @@ class model_selection(BaseWidget):
         'Spring-Mass': None,
         'Pendulum': None,
         'Linearized Z-IM Load': None,
-        'DFIG': '../DFIG.html',
+        'DFIG': PathResolver.model_info() / 'DFIG.html',
     }
 
     def __init__(self, parent):

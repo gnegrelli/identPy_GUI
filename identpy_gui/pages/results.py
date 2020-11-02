@@ -11,8 +11,8 @@ else:
     from matplotlib.backends.backend_qt4agg import (
         FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 
-from ui import Ui_results
-from objects import BaseWidget
+from identpy_gui.ui import Ui_results
+from identpy_gui.objects import BaseWidget
 
 
 class results(BaseWidget):

@@ -4,10 +4,7 @@ from PySide2.QtWidgets import *
 
 from identpy.objects import Estimator
 
-from pages.initial_page import initial_page
-from pages.model_selection import model_selection
-from pages.method_selection import method_selection
-from pages.results import results
+from identpy_gui.pages import initial_page, model_selection, method_selection, results
 
 
 class StackedExample(QStackedWidget):

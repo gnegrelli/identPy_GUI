@@ -1,8 +1,8 @@
-from ui import MethodSelection
-from objects import BaseWidget, MethodWidget
+from identpy_gui.ui import MethodSelection
+from identpy_gui.objects import BaseWidget, MethodWidget
 
-from pages.mvmo import mvmo
-from pages.ts import ts_page
+from identpy_gui.pages.mvmo import mvmo
+from identpy_gui.pages.ts import ts_page
 
 
 class method_selection(BaseWidget):

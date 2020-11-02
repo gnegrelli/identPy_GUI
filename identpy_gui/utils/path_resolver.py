@@ -18,3 +18,11 @@ class PathResolver(object):
     @staticmethod
     def model_info():
         return PathResolver.project() / 'model_info'
+
+    @staticmethod
+    def ui():
+        return PathResolver.project() / 'ui'
+
+    @staticmethod
+    def utils():
+        return PathResolver.project() / 'utils'

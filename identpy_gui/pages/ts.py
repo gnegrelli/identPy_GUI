@@ -5,8 +5,8 @@ from PySide2.QtCore import QSize, Qt
 
 from identpy.methods import TS
 
-from ui import UI_TS
-from objects import MethodWidget
+from identpy_gui.ui import UI_TS
+from identpy_gui.objects import MethodWidget
 
 
 class ts_page(MethodWidget):
