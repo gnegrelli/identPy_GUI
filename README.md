@@ -1,6 +1,7 @@
-# GUI for IdentPy
+# identpy_gui
 
-GUI application for IdentPy software created using PySide2.
+This repository contains the GUI application developed for **[identPy](https://github.com/gnegrelli/identPy)**, a 
+framework for parameter estimation of nonlinear dynamic systems. This application was created using PySide2.
 
 ## Installation
 
@@ -12,9 +13,7 @@ $ pip install -r requirements.txt
 
 ## Page design
 
-In order to design the software pages, one should install the Qt 5 Designer. 
-
-It can be installed by executing the following command:
+It is recommended to use Qt5 Designer tool in order to create new pages and modify existing ones. It can be installed by executing the following command:
 
 ```bash
 $ sudo apt install qttools5-dev-tools
