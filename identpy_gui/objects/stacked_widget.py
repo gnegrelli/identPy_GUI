@@ -1,13 +1,11 @@
-import sys
-
-from PySide2.QtWidgets import *
+from PySide2.QtWidgets import QStackedWidget
 
 from identpy.objects import Estimator
 
 from identpy_gui.pages import initial_page, model_selection, method_selection, results
 
 
-class StackedExample(QStackedWidget):
+class MyStackedWidget(QStackedWidget):
 
     estimator = Estimator()
     method1 = None
@@ -15,7 +13,7 @@ class StackedExample(QStackedWidget):
     model = None
 
     def __init__(self):
-        super(StackedExample, self).__init__()
+        super().__init__()
 
         self.setGeometry(230, 180, 900, 450)
         self.setWindowTitle('identPy v1.0')
@@ -37,13 +35,3 @@ class StackedExample(QStackedWidget):
         self.setCurrentIndex(0)
 
         self.show()
-
-
-def main():
-    app = QApplication(sys.argv)
-    ex = StackedExample()
-    sys.exit(app.exec_())
-
-
-if __name__ == '__main__':
-    main()
