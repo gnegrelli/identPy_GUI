@@ -16,17 +16,10 @@ from identpy_gui.pages.file_selection import MyFileExplorer
 class model_selection(BaseWidget):
 
     models = {
-        'Spring-Mass': SpringMass,
-        'Pendulum': Pendulum,
-        'Linearized Z-IM Load': ZIM,
-        'DFIG': DFIG,
-    }
-
-    infos = {
-        'Spring-Mass': None,
-        'Pendulum': None,
-        'Linearized Z-IM Load': None,
-        'DFIG': PathResolver.model_info() / 'DFIG.html',
+        'Spring-Mass': {'model': SpringMass, 'info': None},
+        'Pendulum': {'model': Pendulum, 'info': None},
+        'Linearized Z-IM Load': {'model': ZIM, 'info': None},
+        'DFIG': {'model': DFIG, 'info': PathResolver.model_info() / 'DFIG.html'},
     }
 
     def __init__(self, parent):
@@ -55,16 +48,17 @@ class model_selection(BaseWidget):
         self.file_browser = MyFileExplorer(self)
 
     def model_change(self):
-        chosen_model = self.ui.selected_model.currentText()
-        if chosen_model in self.models.keys():
-            self.inputs = self.populate_entries(self.ui.verticalLayout_2, self.models[chosen_model].inputs.keys())
-            self.outputs = self.populate_entries(self.ui.verticalLayout_6, self.models[chosen_model].outputs.keys())
-            self.states = self.populate_entries(self.ui.verticalLayout_8, self.models[chosen_model].states.keys())
-            if self.infos[chosen_model] is not None:
-                with open(self.infos[chosen_model], 'r') as f:
+        chosen_model_txt = self.ui.selected_model.currentText()
+        if chosen_model_txt in self.models.keys():
+            chosen_model = self.models[chosen_model_txt]
+            self.inputs = self.populate_entries(self.ui.verticalLayout_2, chosen_model['model'].inputs.keys())
+            self.outputs = self.populate_entries(self.ui.verticalLayout_6, chosen_model['model'].outputs.keys())
+            self.states = self.populate_entries(self.ui.verticalLayout_8, chosen_model['model'].states.keys())
+            if chosen_model['info'] is not None and chosen_model['info'].is_file():
+                with open(chosen_model['info'], 'r') as f:
                     self.ui.lbl_info.setText(f.read())
             else:
-                self.ui.lbl_info.setText(chosen_model)
+                self.ui.lbl_info.setText(chosen_model_txt)
         else:
             print('Model not found')
 
