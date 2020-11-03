@@ -70,7 +70,8 @@ class model_selection(BaseWidget):
             entries_list.append(self.add_entry_row(layout, entry, suffix))
         return entries_list
 
-    def add_entry_row(self, layout, name, suffix: str = ''):
+    @staticmethod
+    def add_entry_row(layout, name, suffix: str = ''):
 
         horizontal_layout = QHBoxLayout()
 
@@ -99,7 +100,7 @@ class model_selection(BaseWidget):
 
         # Validate selected model
         if self.ui.selected_model.currentText() in self.models.keys():
-            model = self.models[self.ui.selected_model.currentText()]
+            model = self.models[self.ui.selected_model.currentText()]['model']
         else:
             self.warning_message('Invalid Model', 'Please select a valid model from the list')
             go_on = False
