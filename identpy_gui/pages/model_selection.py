@@ -16,10 +16,10 @@ from identpy_gui.pages.file_selection import MyFileExplorer
 class model_selection(BaseWidget):
 
     models = {
-        'Spring-Mass': {'model': SpringMass, 'info': None},
-        'Pendulum': {'model': Pendulum, 'info': None},
-        'Linearized Z-IM Load': {'model': ZIM, 'info': None},
-        'DFIG': {'model': DFIG, 'info': PathResolver.model_info() / 'DFIG.html'},
+        'Spring-Mass': {'model': SpringMass, 'info': PathResolver.model_info() / 'spring_mass.html'},
+        'Pendulum': {'model': Pendulum, 'info': PathResolver.model_info() / 'pendulum.html'},
+        'Linearized Z-IM Load': {'model': ZIM, 'info': PathResolver.model_info() / 'zim.html'},
+        'DFIG': {'model': DFIG, 'info': PathResolver.model_info() / 'dfig.html'},
     }
 
     def __init__(self, parent):
