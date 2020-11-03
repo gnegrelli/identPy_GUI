@@ -633,7 +633,7 @@
         </spacer>
        </item>
        <item row="0" column="2">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="lbl_info">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
@@ -650,7 +650,7 @@
           <string/>
          </property>
          <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          <set>Qt::AlignJustify|Qt::AlignTop</set>
          </property>
          <property name="wordWrap">
           <bool>true</bool>

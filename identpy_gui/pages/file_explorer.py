@@ -3,8 +3,8 @@ import webbrowser
 from PySide2 import QtWidgets
 from PySide2 import QtCore
 
-from ui import FileExplorer
-from objects import BaseWidget
+from identpy_gui.ui import FileExplorer
+from identpy_gui.objects import BaseWidget
 
 
 class MyFileExplorer(FileExplorer, QtWidgets.QMainWindow):

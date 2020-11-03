@@ -359,24 +359,21 @@ class Ui_model_selection(object):
 
         self.gridLayout_2.addItem(self.horizontalSpacer_4, 0, 1, 1, 1)
 
-        self.label_6 = QLabel(self.scrollAreaWidgetContents)
-        self.label_6.setObjectName(u"label_6")
+        self.lbl_info = QLabel(self.scrollAreaWidgetContents)
+        self.lbl_info.setObjectName(u"lbl_info")
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy3)
-        self.label_6.setMinimumSize(QSize(500, 0))
-        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.label_6.setWordWrap(True)
-        self.label_6.setOpenExternalLinks(True)
+        sizePolicy3.setHeightForWidth(self.lbl_info.sizePolicy().hasHeightForWidth())
+        self.lbl_info.setAlignment(Qt.AlignJustify|Qt.AlignTop)
+        self.lbl_info.setWordWrap(True)
+        self.lbl_info.setOpenExternalLinks(True)
 
-        self.gridLayout_2.addWidget(self.label_6, 0, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.lbl_info, 0, 2, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.gridLayout.addWidget(self.scrollArea, 3, 0, 1, 1)
-
 
         self.retranslateUi(model_selection)
 
@@ -408,6 +405,6 @@ class Ui_model_selection(object):
         self.label_12.setText(QCoreApplication.translate("model_selection", u"<html><head/><body><p><span style=\" font-size:8pt; color:#555753;\">Initial conditions</span></p></body></html>", None))
         self.label_13.setText(QCoreApplication.translate("model_selection", u"x1:", None))
         self.label_14.setText(QCoreApplication.translate("model_selection", u"x2:", None))
-        self.label_6.setText("")
+        self.lbl_info.setText("")
     # retranslateUi
 

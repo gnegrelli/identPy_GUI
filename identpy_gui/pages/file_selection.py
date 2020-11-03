@@ -1,7 +1,6 @@
-from ui import FileSelection
-from objects import BaseWidget
-
-from pages.file_explorer import MyFileExplorer
+from identpy_gui.ui import FileSelection
+from identpy_gui.objects import BaseWidget
+from identpy_gui.pages import MyFileExplorer
 
 
 class file_selection(BaseWidget):

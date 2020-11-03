@@ -1,5 +1,5 @@
-from ui import InitialPage
-from objects import BaseWidget
+from identpy_gui.ui import InitialPage
+from identpy_gui.objects import BaseWidget
 
 
 class initial_page(BaseWidget):

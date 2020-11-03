@@ -1,4 +1,4 @@
-from objects import BaseWidget
+from identpy_gui.objects import BaseWidget
 
 from PySide2.QtWidgets import QWidget, QHBoxLayout
 

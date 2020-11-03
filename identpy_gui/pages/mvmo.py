@@ -5,8 +5,8 @@ from PySide2.QtWidgets import QHBoxLayout, QLineEdit, QLabel
 
 from identpy.methods import MVMO
 
-from ui import UI_MVMO
-from objects import MethodWidget
+from identpy_gui.ui import UI_MVMO
+from identpy_gui.objects import MethodWidget
 
 
 class mvmo(MethodWidget):
