@@ -17,34 +17,34 @@ To start the GUI application, simply run the script `main.py` located on the roo
 
 The initial page will be displayed with some information about the software.
 
-<!-- Add image here -->
+![](resources/images/initial_page.gif)
 
 Next, a page for model selection is shown. In this page, the user will indicate which model will be estimated. When the 
 model is selected, a short text with information about the model selected is displayed. The user must also indicate the 
 location of file containing the measurements and which columns of the data correspond to the inputs and outputs, as 
 well as the initial conditions of states.
 
-<!-- Add image here -->
+![](resources/images/model.gif)
 
 On the next page, the user will be able to select the estimation methods that will be applied. By clicking on the select 
 box, the user enables the estimation in two steps, where the solution found by the first method is used as starting 
 point by the second method in order to refine it.
 
-<!-- Add image here -->
+![](resources/images/method_selection.gif)
 
 The configuration of the chosen methods is done on the subsequent views. Each method has its own custom configuration 
 page based on a template (MVMO's page is presented below). On the upper half of the page, the user must set general 
 configurations for the method, i.e. population size and tolerance, while on the bottom portion, settings specific to the 
 model chosen are defined.
 
-<!-- Add image here -->
+![](resources/images/mvmo.gif)
 
 With all set, the estimation process can start. The next page shows the current results of the estimation in three tabs. 
 The first one contains graphs depicting the outputs from the real system and the current solution. The "Parameters" tab 
 presents the current value of the parameters estimated by the software. A log with information of how the estimation 
 process evolved is displayed in the last tab.
 
-<!-- Add image here -->
+![](resources/images/results.gif)
 
 ## Contributing
 
