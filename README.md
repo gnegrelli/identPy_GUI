@@ -19,24 +19,23 @@ The initial page will be displayed with some information about the software.
 
 <!-- Add image here -->
 
-Next, a page for model selection is shown. In this page, the user will choose, from a list indicated by "1", which model 
-will be estimated. In "2", the user will be able to select the file containing the measured data used in the estimation 
-process. In "3", the user must identify which column of the data file corresponds to the inputs and outputs and what are
-initial conditions of states. In "4", a short text with information about the model selected is displayed.
+Next, a page for model selection is shown. In this page, the user will indicate which model will be estimated. When the 
+model is selected, a short text with information about the model selected is displayed. The user must also indicate the 
+location of file containing the measurements and which columns of the data correspond to the inputs and outputs, as 
+well as the initial conditions of states.
 
 <!-- Add image here -->
 
-On the next page, the user will be able to select the estimation methods that will be applied. The method selected in 
-"5" this field will be the first applied by the estimation tool. In "6", the user can indicate that the estimation will
-be conducted by two methods in cascade, and the second method to be applied can be selected in "7".
+On the next page, the user will be able to select the estimation methods that will be applied. By clicking on the select 
+box, the user enables the estimation in two steps, where the solution found by the first method is used as starting 
+point by the second method in order to refine it.
 
 <!-- Add image here -->
 
-The configuration of the chosen methods is done on the following windows. Each method has its own custom configuration 
-page based on a template. Below is presented the MVMO configuration page. For this method, the user must set general 
-configurations, such as population size, number of offspring and tolerance. These general configurations are set on the 
-fields indicated by "8". The user must also define what are the limits of the search region, which are set on the 
-fields identified by "9". These fields change according to the choice made by the user on the model selection page.
+The configuration of the chosen methods is done on the subsequent views. Each method has its own custom configuration 
+page based on a template (MVMO's page is presented below). On the upper half of the page, the user must set general 
+configurations for the method, i.e. population size and tolerance, while on the bottom portion, settings specific to the 
+model chosen are defined.
 
 <!-- Add image here -->
 
