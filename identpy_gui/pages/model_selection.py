@@ -53,7 +53,8 @@ class model_selection(BaseWidget):
             chosen_model = self.models[chosen_model_txt]
             self.inputs = self.populate_entries(self.ui.verticalLayout_2, chosen_model['model'].inputs.keys())
             self.outputs = self.populate_entries(self.ui.verticalLayout_6, chosen_model['model'].outputs.keys())
-            self.states = self.populate_entries(self.ui.verticalLayout_8, chosen_model['model'].states.keys())
+            self.states = self.populate_entries(self.ui.verticalLayout_8, chosen_model['model'].states.keys(),
+                                                suffix='<sub>0</sub>')
             if chosen_model['info'] is not None and chosen_model['info'].is_file():
                 with open(chosen_model['info'], 'r') as f:
                     self.ui.lbl_info.setText(f.read())
@@ -62,18 +63,18 @@ class model_selection(BaseWidget):
         else:
             print('Model not found')
 
-    def populate_entries(self, layout, entries):
+    def populate_entries(self, layout, entries, suffix: str = ''):
         self.clear_layout(layout)
         entries_list = []
         for entry in entries:
-            entries_list.append(self.add_entry_row(layout, entry))
+            entries_list.append(self.add_entry_row(layout, entry, suffix))
         return entries_list
 
-    def add_entry_row(self, layout, name):
+    def add_entry_row(self, layout, name, suffix: str = ''):
 
         horizontal_layout = QHBoxLayout()
 
-        param_name = QLabel('{} :'.format(name))
+        param_name = QLabel('{}{} :'.format(name, suffix))
         param_name.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
         param_name.setFixedSize(QSize(40, 25))
         horizontal_layout.addWidget(param_name)
