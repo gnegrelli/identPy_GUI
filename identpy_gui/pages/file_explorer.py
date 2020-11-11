@@ -1,3 +1,4 @@
+import os
 import webbrowser
 
 from PySide2 import QtWidgets
@@ -30,7 +31,7 @@ class MyFileExplorer(FileExplorer, QtWidgets.QMainWindow):
         self.show()
 
     def populate(self):
-        path = "/home"
+        path = r'\home' if os.name == 'posix' else 'C:'
         self.model.setRootPath(QtCore.QDir.rootPath())
         self.treeView.setModel(self.model)
         self.treeView.setRootIndex(self.model.index(path))
